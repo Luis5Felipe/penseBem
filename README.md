@@ -10,3 +10,7 @@
 - node v24.14.0
 - react v19.2.4
 - vite v8.0.0
+
+
+# PDF Escolido 
+- pense bem sonic e tails alta velocidade.
