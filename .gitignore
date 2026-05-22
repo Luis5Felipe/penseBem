@@ -46,3 +46,6 @@ example
 .idea
 AGENTS.md
 CLAUDE.md
+.env
+.env.local
+.env.development
