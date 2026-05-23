@@ -1,0 +1,247 @@
+import { StyleSheet } from 'react-native';
+
+export const styles = StyleSheet.create({
+  page: {
+    flex: 1,
+  },
+  safeArea: {
+    flex: 1,
+  },
+  scrollContent: {
+    width: '100%',
+    maxWidth: 760,
+    alignSelf: 'center',
+    paddingHorizontal: 16,
+    paddingBottom: 32,
+    paddingTop: 16,
+    gap: 14,
+  },
+  scrollContentWide: {
+    maxWidth: 960,
+    paddingHorizontal: 32,
+  },
+  scrollContentSmall: {
+    paddingHorizontal: 10,
+    gap: 10,
+  },
+  brandContainer: {
+    borderRadius: 14,
+    borderWidth: 1,
+    paddingHorizontal: 16,
+    paddingVertical: 14,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  brandTitle: {
+    fontSize: 26,
+    lineHeight: 30,
+    fontWeight: '800',
+  },
+  brandSubtitle: {
+    marginTop: 2,
+    fontSize: 13,
+    fontWeight: '500',
+  },
+  darkModeToggle: {
+    height: 34,
+    borderRadius: 20,
+    paddingHorizontal: 6,
+    backgroundColor: 'rgba(255,255,255,0.15)',
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.2)',
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+  },
+  darkModeToggleActive: {
+    backgroundColor: 'rgba(0,0,0,0.3)',
+    borderColor: 'rgba(255,215,0,0.4)',
+  },
+  darkModeLabel: {
+    color: '#FFFFFF',
+    fontSize: 12,
+    fontWeight: '700',
+    paddingRight: 4,
+  },
+  darkModeLabelActive: {
+    color: '#FFD700',
+  },
+  switchThumb: {
+    width: 18,
+    height: 18,
+    borderRadius: 9,
+    backgroundColor: '#FFFFFF',
+  },
+  switchThumbActive: {
+    backgroundColor: '#FFD700',
+  },
+  gameCard: {
+    borderRadius: 16,
+    borderWidth: 1,
+    padding: 16,
+    gap: 14,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 12,
+    elevation: 8,
+  },
+  roundHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    borderBottomWidth: 1,
+    paddingBottom: 14,
+  },
+  roundCode: {
+    fontSize: 28,
+    letterSpacing: 0.5,
+    fontWeight: '800',
+  },
+  livePill: {
+    borderRadius: 999,
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+  },
+  livePillText: {
+    fontSize: 11,
+    fontWeight: '700',
+  },
+  questionPanel: {
+    borderRadius: 12,
+    paddingHorizontal: 14,
+    paddingVertical: 14,
+    borderWidth: 1,
+  },
+  questionLabel: {
+    fontSize: 11,
+    letterSpacing: 0.8,
+    marginBottom: 8,
+    fontWeight: '700',
+    textTransform: 'uppercase',
+  },
+  questionText: {
+    fontSize: 22,
+    lineHeight: 30,
+    fontWeight: '700',
+  },
+  triesRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    borderRadius: 10,
+    paddingHorizontal: 4,
+    paddingVertical: 4,
+  },
+  triesText: {
+    fontSize: 14,
+    fontWeight: '600',
+  },
+  timerText: {
+    fontSize: 22,
+    fontWeight: '800',
+  },
+  optionsGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    gap: 8,
+  },
+  optionsGridWide: {
+    gap: 12,
+  },
+  optionButton: {
+    width: '48.8%',
+    aspectRatio: 1.15,
+    borderRadius: 12,
+    borderWidth: 2,
+    borderColor: 'transparent',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  optionButtonWide: {
+    aspectRatio: 1.25,
+  },
+  optionButtonSmall: {
+    aspectRatio: 1,
+  },
+  optionButtonSelected: {
+    borderColor: '#FFFFFF',
+    borderWidth: 3,
+    shadowColor: '#FFFFFF',
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.5,
+    shadowRadius: 8,
+    elevation: 6,
+  },
+  optionLabel: {
+    color: '#FFFFFF',
+    fontSize: 36,
+    fontWeight: '800',
+    lineHeight: 40,
+  },
+  optionText: {
+    color: '#FFFFFF',
+    fontSize: 12,
+    fontWeight: '600',
+    textAlign: 'center',
+    marginTop: 4,
+    paddingHorizontal: 4,
+    lineHeight: 16,
+  },
+  actionRow: {
+    flexDirection: 'row',
+    gap: 8,
+  },
+  actionRowWide: {
+    gap: 12,
+  },
+  secondaryAction: {
+    flex: 1,
+    paddingVertical: 13,
+    borderRadius: 10,
+    backgroundColor: 'transparent',
+    borderWidth: 1,
+    alignItems: 'center',
+  },
+  secondaryActionText: {
+    fontSize: 15,
+    fontWeight: '700',
+  },
+  primaryAction: {
+    flex: 1.5,
+    paddingVertical: 13,
+    borderRadius: 10,
+    backgroundColor: '#FFD700',
+    alignItems: 'center',
+  },
+  primaryActionDisabled: {
+    opacity: 0.4,
+  },
+  primaryActionText: {
+    color: '#14162E',
+    fontSize: 15,
+    fontWeight: '800',
+  },
+  feedbackBanner: {
+    borderRadius: 10,
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    alignItems: 'center',
+  },
+  feedbackText: {
+    color: '#FFFFFF',
+    fontSize: 16,
+    fontWeight: '800',
+  },
+  footerInfo: {
+    paddingHorizontal: 2,
+  },
+  footerText: {
+    textAlign: 'center',
+    fontSize: 12,
+    lineHeight: 17,
+    fontWeight: '500',
+  },
+});
