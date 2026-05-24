@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "PenseBem",
-    "slug": "PenseBem",
+    "slug": "pensebem-2wjfe0lpvfuaohvxfuyg",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -40,6 +40,13 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "97182b69-b232-4654-877e-3e8e27ed60a7"
+      }
+    },
+    "owner": "luis5felipe"
   }
 }
