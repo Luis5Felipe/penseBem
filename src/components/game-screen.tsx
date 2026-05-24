@@ -12,8 +12,8 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { styles } from '@/components/game-styles';
-import gameData from '@/json_com_perguntas/pense_bem_sonic_tails.json';
+import gameData from '../json_com_perguntas/pense_bem_sonic_tails.json';
+import { styles } from './game-styles';
 
 if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental) {
   UIManager.setLayoutAnimationEnabledExperimental(true);
