@@ -149,7 +149,8 @@ export default function GameScreen() {
   const currentQuestion = questions[questionIndex];
   const isCorrectAnswer = gameStatus === 'answered' && selectedOption === currentQuestion.correctAnswer;
   const hasMoreQuestions = questionIndex < questions.length - 1;
-  const attemptNumber = Math.min(attemptsUsed + 1, MAX_ATTEMPTS);
+  const attemptsRemaining = Math.max(MAX_ATTEMPTS - attemptsUsed, 0);
+  const isAnswerLocked = gameStatus !== 'playing' || attemptsRemaining === 0;
 
   useEffect(() => {
     if (gameStatus !== 'playing') return;
@@ -173,19 +174,22 @@ export default function GameScreen() {
   }
 
   function handleSelectOption(id: string) {
-    if (gameStatus !== 'playing') return;
+    if (isAnswerLocked) return;
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     setSelectedOption((prev) => (prev === id ? null : id));
   }
 
   function handleConfirm() {
-    if (!selectedOption || gameStatus !== 'playing') return;
+    if (!selectedOption || isAnswerLocked) return;
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+    const nextAttemptsUsed = attemptsUsed + 1;
+
+    setAttemptsUsed(nextAttemptsUsed);
+
     if (selectedOption === currentQuestion.correctAnswer) {
       setScore((current) => current + 1);
-    } else {
-      setAttemptsUsed((current) => current + 1);
     }
+
     setGameStatus('answered');
   }
 
@@ -202,7 +206,7 @@ export default function GameScreen() {
   function handleContinue() {
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
 
-    if (gameStatus === 'answered' && !isCorrectAnswer && attemptsUsed < MAX_ATTEMPTS) {
+    if (gameStatus === 'answered' && !isCorrectAnswer && attemptsRemaining > 0) {
       setSelectedOption(null);
       setGameStatus('playing');
       return;
@@ -271,7 +275,7 @@ export default function GameScreen() {
               </Text>
               <View style={[styles.livePill, { backgroundColor: palette.badge }]}>
                 <Text style={[styles.livePillText, { color: isDarkMode ? '#FFD700' : '#1F5D35' }]}>
-                  Tentativa {attemptNumber} de {MAX_ATTEMPTS}
+                  {attemptsRemaining === 1 ? 'Resta 1 tentativa' : `Restam ${attemptsRemaining} tentativas`}
                 </Text>
               </View>
             </View>
@@ -296,17 +300,19 @@ export default function GameScreen() {
                   <Pressable
                     key={option.id}
                     onPress={() => handleSelectOption(option.id)}
+                    disabled={isAnswerLocked}
                     style={[
                       styles.optionButton,
                       isWide && styles.optionButtonWide,
                       isSmall && styles.optionButtonSmall,
                       { backgroundColor: option.color },
                       isSelected && styles.optionButtonSelected,
+                      isAnswerLocked && styles.optionButtonDisabled,
                     ]}
                     accessibilityRole="button"
                     accessibilityLabel={`Alternativa ${option.id}, ${option.colorName}: ${option.text}`}
                     accessibilityHint="Toque para escolher esta alternativa"
-                    accessibilityState={{ selected: isSelected }}>
+                    accessibilityState={{ disabled: isAnswerLocked, selected: isSelected }}>
                     <Text style={styles.optionLabel}>{option.id}</Text>
                     <Text style={styles.optionText} numberOfLines={2}>{option.text}</Text>
                   </Pressable>
@@ -326,10 +332,10 @@ export default function GameScreen() {
 
               <Pressable
                 onPress={handleConfirm}
-                disabled={!selectedOption || gameStatus !== 'playing'}
+                disabled={!selectedOption || isAnswerLocked}
                 style={[
                   styles.primaryAction,
-                  (!selectedOption || gameStatus !== 'playing') && styles.primaryActionDisabled,
+                  (!selectedOption || isAnswerLocked) && styles.primaryActionDisabled,
                 ]}
                 accessibilityRole="button"
                 accessibilityLabel="Confirmar resposta"
@@ -353,7 +359,7 @@ export default function GameScreen() {
             {gameStatus === 'answered' && !isCorrectAnswer && (
               <View style={[styles.feedbackBanner, { backgroundColor: '#DC2626' }]}>
                 <Text style={styles.feedbackText}>
-                  {attemptsUsed < MAX_ATTEMPTS ? 'Resposta incorreta. Tente novamente!' : `Resposta: ${currentQuestion.answer}`}
+                  {attemptsRemaining > 0 ? 'Resposta incorreta. Tente novamente!' : `Resposta: ${currentQuestion.answer}`}
                 </Text>
               </View>
             )}
@@ -363,9 +369,9 @@ export default function GameScreen() {
                 onPress={handleContinue}
                 style={styles.primaryAction}
                 accessibilityRole="button"
-                accessibilityLabel={isCorrectAnswer || attemptsUsed >= MAX_ATTEMPTS || gameStatus === 'timeout' ? 'Proxima pergunta' : 'Tentar novamente'}>
+                accessibilityLabel={isCorrectAnswer || attemptsRemaining === 0 || gameStatus === 'timeout' ? 'Proxima pergunta' : 'Tentar novamente'}>
                 <Text style={styles.primaryActionText}>
-                  {isCorrectAnswer || attemptsUsed >= MAX_ATTEMPTS || gameStatus === 'timeout'
+                  {isCorrectAnswer || attemptsRemaining === 0 || gameStatus === 'timeout'
                     ? hasMoreQuestions
                       ? 'Proxima pergunta'
                       : 'Ver resultado'

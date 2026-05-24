@@ -175,6 +175,9 @@ export const styles = StyleSheet.create({
     shadowRadius: 8,
     elevation: 6,
   },
+  optionButtonDisabled: {
+    opacity: 0.72,
+  },
   optionLabel: {
     color: '#FFFFFF',
     fontSize: 36,
