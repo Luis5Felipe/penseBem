@@ -99,6 +99,11 @@ export const styles = StyleSheet.create({
     letterSpacing: 0.5,
     fontWeight: '800',
   },
+  progressText: {
+    marginTop: 2,
+    fontSize: 12,
+    fontWeight: '700',
+  },
   livePill: {
     borderRadius: 999,
     paddingHorizontal: 10,
@@ -202,10 +207,12 @@ export const styles = StyleSheet.create({
   },
   secondaryAction: {
     flex: 1,
+    minHeight: 44,
     paddingVertical: 13,
     borderRadius: 10,
     backgroundColor: 'transparent',
     borderWidth: 1,
+    justifyContent: 'center',
     alignItems: 'center',
   },
   secondaryActionText: {
@@ -214,10 +221,18 @@ export const styles = StyleSheet.create({
   },
   primaryAction: {
     flex: 1.5,
+    minHeight: 44,
     paddingVertical: 13,
     borderRadius: 10,
     backgroundColor: '#FFD700',
+    justifyContent: 'center',
     alignItems: 'center',
+  },
+  fullWidthAction: {
+    flexGrow: 0,
+    flexShrink: 0,
+    flexBasis: 'auto',
+    width: '100%',
   },
   primaryActionDisabled: {
     opacity: 0.4,
@@ -226,6 +241,69 @@ export const styles = StyleSheet.create({
     color: '#14162E',
     fontSize: 15,
     fontWeight: '800',
+  },
+  menuHeader: {
+    gap: 6,
+  },
+  menuTitle: {
+    fontSize: 24,
+    lineHeight: 30,
+    fontWeight: '800',
+  },
+  menuText: {
+    fontSize: 14,
+    lineHeight: 20,
+    fontWeight: '600',
+  },
+  menuSection: {
+    gap: 8,
+  },
+  menuSectionTitle: {
+    fontSize: 14,
+    fontWeight: '800',
+  },
+  selectionGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 8,
+  },
+  selectionButton: {
+    width: '48.8%',
+    minHeight: 58,
+    borderRadius: 10,
+    borderWidth: 1,
+    paddingHorizontal: 10,
+    paddingVertical: 9,
+    justifyContent: 'center',
+  },
+  selectionButtonActive: {
+    backgroundColor: '#FFD700',
+    borderColor: '#FFD700',
+  },
+  selectionButtonText: {
+    fontSize: 13,
+    lineHeight: 17,
+    fontWeight: '800',
+  },
+  selectionButtonMeta: {
+    marginTop: 2,
+    fontSize: 11,
+    lineHeight: 14,
+    fontWeight: '700',
+  },
+  difficultyRow: {
+    flexDirection: 'row',
+    gap: 8,
+  },
+  difficultyButton: {
+    flex: 1,
+    minHeight: 58,
+    borderRadius: 10,
+    borderWidth: 1,
+    paddingHorizontal: 10,
+    paddingVertical: 9,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   feedbackBanner: {
     borderRadius: 10,

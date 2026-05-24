@@ -6,7 +6,7 @@
   "programas": [
     {
       "id": 1,
-      "codigo_acesso": ["LIVRO", "1", "3", "1", "ENTER"],
+      "codigo_acesso": ["131"],
       "secoes": [
         {
           "titulo": "Olha quem está aqui!",
@@ -95,10 +95,10 @@
               "enunciado": "Tails é um raposinho diferente: ele tem dois... .",
               "tipo": "imagem",
               "opcoes": {
-                "vermelho": "[imagem: dois rabos]",
-                "amarelo": "[imagem: duas orelhas/cabeça de raposa]",
-                "azul": "[imagem: dois olhos]",
-                "verde": "[imagem: dois bicos/narizes]"
+                "vermelho": "[dois rabos]",
+                "amarelo": "[duas orelhas/cabeça de raposa]",
+                "azul": "[dois olhos]",
+                "verde": "[dois bicos/narizes]"
               },
               "resposta_correta": "vermelho",
               "resposta": "dois rabos"
@@ -108,10 +108,10 @@
               "enunciado": "Os rabos de Tails giram como... .",
               "tipo": "imagem",
               "opcoes": {
-                "vermelho": "[imagem: hélice/propeller]",
-                "amarelo": "[imagem: pneu/roda]",
-                "azul": "[imagem: bala de doce]",
-                "verde": "[imagem: despertador]"
+                "vermelho": "[hélice/propeller]",
+                "amarelo": "[pneu/roda]",
+                "azul": "[bala de doce]",
+                "verde": "[despertador]"
               },
               "resposta_correta": "vermelho",
               "resposta": "hélice"
@@ -121,10 +121,10 @@
               "enunciado": "Tails flutua como um... .",
               "tipo": "imagem",
               "opcoes": {
-                "vermelho": "[imagem: navio]",
-                "amarelo": "[imagem: carro]",
-                "azul": "[imagem: rato]",
-                "verde": "[imagem: helicóptero]"
+                "vermelho": "[navio]",
+                "amarelo": "[carro]",
+                "azul": "[rato]",
+                "verde": "[helicóptero]"
               },
               "resposta_correta": "verde",
               "resposta": "helicóptero"
@@ -332,10 +332,10 @@
               "enunciado": "Qual objeto faz movimento giratório similar ao de Tails?",
               "tipo": "imagem",
               "opcoes": {
-                "vermelho": "[imagem: maçã]",
-                "amarelo": "[imagem: helicóptero]",
-                "azul": "[imagem: martelo]",
-                "verde": "[imagem: porta-retrato]"
+                "vermelho": "[ maçã]",
+                "amarelo": "[ helicóptero]",
+                "azul": "[ martelo]",
+                "verde": "[ porta-retrato]"
               },
               "resposta_correta": "amarelo",
               "resposta": "helicóptero"
@@ -345,10 +345,10 @@
               "enunciado": "Qual objeto faz movimento giratório similar ao de Tails?",
               "tipo": "imagem",
               "opcoes": {
-                "vermelho": "[imagem: geladeira]",
-                "amarelo": "[imagem: rádio/toca-discos]",
-                "azul": "[imagem: colher]",
-                "verde": "[imagem: liquidificador]"
+                "vermelho": "[geladeira]",
+                "amarelo": "[rádio/toca-discos]",
+                "azul": "[colher]",
+                "verde": "[liquidificador]"
               },
               "resposta_correta": "verde",
               "resposta": "liquidificador"
@@ -358,10 +358,10 @@
               "enunciado": "Qual objeto faz movimento giratório similar ao de Tails?",
               "tipo": "imagem",
               "opcoes": {
-                "vermelho": "[imagem: ventilador]",
-                "amarelo": "[imagem: cadeira]",
-                "azul": "[imagem: poltrona]",
-                "verde": "[imagem: ursinho de pelúcia]"
+                "vermelho": "[ventilador]",
+                "amarelo": "[cadeira]",
+                "azul": "[poltrona]",
+                "verde": "[ursinho de pelúcia]"
               },
               "resposta_correta": "vermelho",
               "resposta": "ventilador"
@@ -371,10 +371,10 @@
               "enunciado": "Qual objeto faz movimento giratório similar ao de Tails?",
               "tipo": "imagem",
               "opcoes": {
-                "vermelho": "[imagem: televisão]",
-                "amarelo": "[imagem: telefone]",
-                "azul": "[imagem: cata-vento/hélice]",
-                "verde": "[imagem: pincel]"
+                "vermelho": "[televisão]",
+                "amarelo": "[telefone]",
+                "azul": "[cata-vento/hélice]",
+                "verde": "[pincel]"
               },
               "resposta_correta": "azul",
               "resposta": "cata-vento/hélice"
@@ -384,10 +384,10 @@
               "enunciado": "Qual objeto faz movimento giratório similar ao de Tails?",
               "tipo": "imagem",
               "opcoes": {
-                "vermelho": "[imagem: catavento]",
-                "amarelo": "[imagem: casinha]",
-                "azul": "[imagem: barco]",
-                "verde": "[imagem: cogumelo]"
+                "vermelho": "[catavento]",
+                "amarelo": "[casinha]",
+                "azul": "[barco]",
+                "verde": "[cogumelo]"
               },
               "resposta_correta": "vermelho",
               "resposta": "catavento"
@@ -397,10 +397,10 @@
               "enunciado": "Qual objeto faz movimento giratório similar ao de Tails?",
               "tipo": "imagem",
               "opcoes": {
-                "vermelho": "[imagem: flor]",
-                "amarelo": "[imagem: sorvete]",
-                "azul": "[imagem: moinho de vento]",
-                "verde": "[imagem: camiseta]"
+                "vermelho": "[flor]",
+                "amarelo": "[sorvete]",
+                "azul": "[moinho de vento]",
+                "verde": "[camiseta]"
               },
               "resposta_correta": "azul",
               "resposta": "moinho de vento"
@@ -411,7 +411,7 @@
     },
     {
       "id": 2,
-      "codigo_acesso": ["LIVRO", "1", "3", "2", "ENTER"],
+      "codigo_acesso": ["132"],
       "secoes": [
         {
           "titulo": "Sonic e Tails",
@@ -673,7 +673,7 @@
         },
         {
           "titulo": "Quebra-cabeça",
-          "descricao": "Complete o quebra-cabeça com a peça correspondente a cada lugar numerado. (Imagem: Sonic e Tails juntos)",
+          "descricao": "Complete o quebra-cabeça com a peça correspondente a cada lugar numerado. (Sonic e Tails juntos)",
           "questoes": [
             {
               "numero": 51,
@@ -807,7 +807,7 @@
     },
     {
       "id": 3,
-      "codigo_acesso": ["LIVRO", "1", "3", "3", "ENTER"],
+      "codigo_acesso": ["133"],
       "secoes": [
         {
           "titulo": "Supersonic",
@@ -1209,7 +1209,7 @@
     },
     {
       "id": 4,
-      "codigo_acesso": ["LIVRO", "1", "3", "4", "ENTER"],
+      "codigo_acesso": ["134"],
       "secoes": [
         {
           "titulo": "Veloz como o vento",
@@ -1609,7 +1609,7 @@
     },
     {
       "id": 5,
-      "codigo_acesso": ["LIVRO", "1", "3", "5", "ENTER"],
+      "codigo_acesso": ["135"],
       "secoes": [
         {
           "titulo": "O jeito mais rápido",
@@ -1847,7 +1847,7 @@
         },
         {
           "titulo": "Quebra-cabeça",
-          "descricao": "Complete o quebra-cabeça com a peça correspondente a cada lugar numerado. (Imagem: Sonic com argolas e palmeiras ao fundo — peças A a H)",
+          "descricao": "Complete o quebra-cabeça com a peça correspondente a cada lugar numerado. (Sonic com argolas e palmeiras ao fundo — peças A a H)",
           "questoes": [
             {
               "numero": 139,
