@@ -1,0 +1,2007 @@
+{
+  "livro": "Pense Bem - Sonic e Tails em Alta Velocidade",
+  "editora": "Nova Cultural",
+  "ano": "1994",
+  "faixa_etaria": "A partir de 7 anos",
+  "programas": [
+    {
+      "id": 1,
+      "codigo_acesso": ["LIVRO", "1", "3", "1", "ENTER"],
+      "secoes": [
+        {
+          "titulo": "Olha quem está aqui!",
+          "descricao": "Sonic está de volta para novas aventuras no planeta Mobius. E desta vez ele vem com um novo amigo: Tails, um raposinho que é capaz de voar!",
+          "questoes": [
+            {
+              "numero": 1,
+              "enunciado": "Sonic é um .... superveloz.",
+              "opcoes": {
+                "vermelho": "ratinho",
+                "amarelo": "porco-espinho",
+                "azul": "esquilo",
+                "verde": "pinguim"
+              },
+              "resposta_correta": "amarelo",
+              "resposta": "porco-espinho"
+            },
+            {
+              "numero": 2,
+              "enunciado": "A principal arma de defesa de Sonic é o famoso .... .",
+              "opcoes": {
+                "vermelho": "Cambalhota Voadora",
+                "amarelo": "Ataque Giratório Supersônico",
+                "azul": "Soco Frontal Direcionado",
+                "verde": "Pontapé Diagonal"
+              },
+              "resposta_correta": "amarelo",
+              "resposta": "Ataque Giratório Supersônico"
+            },
+            {
+              "numero": 3,
+              "enunciado": "Sonic tem muito orgulho de seus espinhos .... .",
+              "opcoes": {
+                "vermelho": "verdes",
+                "amarelo": "vermelhos",
+                "azul": "azuis",
+                "verde": "amarelos"
+              },
+              "resposta_correta": "azul",
+              "resposta": "azuis"
+            },
+            {
+              "numero": 4,
+              "enunciado": "As botinhas .... de Sonic protegem seus pés do calor do atrito, durante as correrias.",
+              "opcoes": {
+                "vermelho": "azuis",
+                "amarelo": "amarelas",
+                "azul": "verdes",
+                "verde": "vermelhas"
+              },
+              "resposta_correta": "verde",
+              "resposta": "vermelhas"
+            },
+            {
+              "numero": 5,
+              "enunciado": "O Dr. Ovi Kintobor era um .... que fazia experiências malucas em seu .... .",
+              "opcoes": {
+                "vermelho": "cozinheiro — cozinha",
+                "amarelo": "médico — consultório",
+                "azul": "cineasta — estúdio",
+                "verde": "cientista — laboratório"
+              },
+              "resposta_correta": "verde",
+              "resposta": "cientista — laboratório"
+            },
+            {
+              "numero": 6,
+              "enunciado": "Mas, por causa de um engano, o Dr. K. acabou se transformando no perverso .... .",
+              "opcoes": {
+                "vermelho": "Dr. Ivo Pitanguik",
+                "amarelo": "Dr. Ivo Robotnik",
+                "azul": "Dr. Ovni Nikotrov",
+                "verde": "Dr. Frankenstein"
+              },
+              "resposta_correta": "amarelo",
+              "resposta": "Dr. Ivo Robotnik"
+            }
+          ]
+        },
+        {
+          "titulo": "Falando de Tails...",
+          "descricao": "Tails ajuda Sonic a se livrar das armadilhas que o Dr. Robotnik prepara para ele. Tails está sempre a postos para enfrentar o inimigo com sua arma secreta.",
+          "questoes": [
+            {
+              "numero": 7,
+              "enunciado": "Tails é um raposinho diferente: ele tem dois... .",
+              "tipo": "imagem",
+              "opcoes": {
+                "vermelho": "[imagem: dois rabos]",
+                "amarelo": "[imagem: duas orelhas/cabeça de raposa]",
+                "azul": "[imagem: dois olhos]",
+                "verde": "[imagem: dois bicos/narizes]"
+              },
+              "resposta_correta": "vermelho",
+              "resposta": "dois rabos"
+            },
+            {
+              "numero": 8,
+              "enunciado": "Os rabos de Tails giram como... .",
+              "tipo": "imagem",
+              "opcoes": {
+                "vermelho": "[imagem: hélice/propeller]",
+                "amarelo": "[imagem: pneu/roda]",
+                "azul": "[imagem: bala de doce]",
+                "verde": "[imagem: despertador]"
+              },
+              "resposta_correta": "vermelho",
+              "resposta": "hélice"
+            },
+            {
+              "numero": 9,
+              "enunciado": "Tails flutua como um... .",
+              "tipo": "imagem",
+              "opcoes": {
+                "vermelho": "[imagem: navio]",
+                "amarelo": "[imagem: carro]",
+                "azul": "[imagem: rato]",
+                "verde": "[imagem: helicóptero]"
+              },
+              "resposta_correta": "verde",
+              "resposta": "helicóptero"
+            },
+            {
+              "numero": 10,
+              "enunciado": "O helicóptero é ... veloz que o navio.",
+              "opcoes": {
+                "vermelho": "menos",
+                "amarelo": "tanto",
+                "azul": "mais",
+                "verde": "leve"
+              },
+              "resposta_correta": "azul",
+              "resposta": "mais"
+            },
+            {
+              "numero": 11,
+              "enunciado": "O ... é mais veloz que o helicóptero.",
+              "opcoes": {
+                "vermelho": "rato",
+                "amarelo": "foguete",
+                "azul": "caracol",
+                "verde": "skate"
+              },
+              "resposta_correta": "amarelo",
+              "resposta": "foguete"
+            },
+            {
+              "numero": 12,
+              "enunciado": "Balões e dirigíveis são muito .... .",
+              "opcoes": {
+                "vermelho": "gordos",
+                "amarelo": "gelados",
+                "azul": "pesados",
+                "verde": "leves"
+              },
+              "resposta_correta": "verde",
+              "resposta": "leves"
+            }
+          ]
+        },
+        {
+          "titulo": "Campeões da velocidade",
+          "descricao": "Todos já sabem que Sonic adora a velocidade. E como ele treinou no laboratório do Dr. K. até ultrapassar a barreira do som. Agora conheça estes outros campeões da velocidade em terra, mar e ar.",
+          "questoes": [
+            {
+              "numero": 13,
+              "enunciado": "O trem mais rápido do mundo é o ... .",
+              "opcoes": {
+                "vermelho": "trem-bala",
+                "amarelo": "trem-fantasma",
+                "azul": "trem das onze",
+                "verde": "maria-fumaça"
+              },
+              "resposta_correta": "vermelho",
+              "resposta": "trem-bala"
+            },
+            {
+              "numero": 14,
+              "enunciado": "O animal mais veloz em terra é o ... .",
+              "opcoes": {
+                "vermelho": "guepardo",
+                "amarelo": "tigre",
+                "azul": "alce",
+                "verde": "urso"
+              },
+              "resposta_correta": "vermelho",
+              "resposta": "guepardo"
+            },
+            {
+              "numero": 15,
+              "enunciado": "Qual deles nada mais rápido?",
+              "opcoes": {
+                "vermelho": "polvo",
+                "amarelo": "baleia",
+                "azul": "peixe-voador",
+                "verde": "tubarão"
+              },
+              "resposta_correta": "verde",
+              "resposta": "tubarão"
+            },
+            {
+              "numero": 16,
+              "enunciado": "Qual destas aves é mais veloz?",
+              "opcoes": {
+                "vermelho": "arara",
+                "amarelo": "sabiá",
+                "azul": "águia",
+                "verde": "galinha"
+              },
+              "resposta_correta": "azul",
+              "resposta": "águia"
+            },
+            {
+              "numero": 17,
+              "enunciado": "Foguetes e mísseis... a barreira do som.",
+              "opcoes": {
+                "vermelho": "ultrapassam",
+                "amarelo": "passam embaixo",
+                "azul": "desaparecem",
+                "verde": "navegam"
+              },
+              "resposta_correta": "vermelho",
+              "resposta": "ultrapassam"
+            },
+            {
+              "numero": 18,
+              "enunciado": "Isto quer dizer que os foguetes e mísseis supersônicos são... rápidos que o som.",
+              "opcoes": {
+                "vermelho": "super",
+                "amarelo": "muito",
+                "azul": "mais",
+                "verde": "bastante"
+              },
+              "resposta_correta": "azul",
+              "resposta": "mais"
+            }
+          ]
+        },
+        {
+          "titulo": "Cruzadinha rápida",
+          "descricao": "Complete a cruzadinha com as palavras corretas.",
+          "questoes": [
+            {
+              "numero": 19,
+              "enunciado": "Sonic adora a .... . (Horizontal)",
+              "opcoes": {
+                "vermelho": "música",
+                "amarelo": "calma",
+                "azul": "velocidade",
+                "verde": "feijoada"
+              },
+              "resposta_correta": "azul",
+              "resposta": "velocidade"
+            },
+            {
+              "numero": 20,
+              "enunciado": "Veloz quer dizer .... . (Horizontal)",
+              "opcoes": {
+                "vermelho": "lento",
+                "amarelo": "rápido",
+                "azul": "fraco",
+                "verde": "forte"
+              },
+              "resposta_correta": "amarelo",
+              "resposta": "rápido"
+            },
+            {
+              "numero": 21,
+              "enunciado": "Por causa da velocidade, os espinhos de Sonic ficaram .... . (Horizontal)",
+              "opcoes": {
+                "vermelho": "invisíveis",
+                "amarelo": "verdes",
+                "azul": "quebrados",
+                "verde": "azuis"
+              },
+              "resposta_correta": "verde",
+              "resposta": "azuis"
+            },
+            {
+              "numero": 22,
+              "enunciado": "O contrário de 'depressa' é .... . (Vertical)",
+              "opcoes": {
+                "vermelho": "devagar",
+                "amarelo": "alto",
+                "azul": "feio",
+                "verde": "magro"
+              },
+              "resposta_correta": "vermelho",
+              "resposta": "devagar"
+            },
+            {
+              "numero": 23,
+              "enunciado": "Tails tem rabos .... . (Vertical)",
+              "opcoes": {
+                "vermelho": "listrados",
+                "amarelo": "peludos",
+                "azul": "salgados",
+                "verde": "cortados"
+              },
+              "resposta_correta": "amarelo",
+              "resposta": "peludos"
+            },
+            {
+              "numero": 24,
+              "enunciado": "Para voar, ele gira seus rabos bem .... . (Vertical)",
+              "opcoes": {
+                "vermelho": "depressa",
+                "amarelo": "baixinho",
+                "azul": "suavemente",
+                "verde": "quadrados"
+              },
+              "resposta_correta": "vermelho",
+              "resposta": "depressa"
+            }
+          ]
+        },
+        {
+          "titulo": "Um raposinho muito especial",
+          "descricao": "Você já sabe que Tails é capaz de ficar suspenso no ar girando rapidamente seus rabos. Esse movimento giratório é parecido com o movimento que fazem alguns dos objetos abaixo. Vamos identificá-los?",
+          "questoes": [
+            {
+              "numero": 25,
+              "enunciado": "Qual objeto faz movimento giratório similar ao de Tails?",
+              "tipo": "imagem",
+              "opcoes": {
+                "vermelho": "[imagem: maçã]",
+                "amarelo": "[imagem: helicóptero]",
+                "azul": "[imagem: martelo]",
+                "verde": "[imagem: porta-retrato]"
+              },
+              "resposta_correta": "amarelo",
+              "resposta": "helicóptero"
+            },
+            {
+              "numero": 26,
+              "enunciado": "Qual objeto faz movimento giratório similar ao de Tails?",
+              "tipo": "imagem",
+              "opcoes": {
+                "vermelho": "[imagem: geladeira]",
+                "amarelo": "[imagem: rádio/toca-discos]",
+                "azul": "[imagem: colher]",
+                "verde": "[imagem: liquidificador]"
+              },
+              "resposta_correta": "verde",
+              "resposta": "liquidificador"
+            },
+            {
+              "numero": 27,
+              "enunciado": "Qual objeto faz movimento giratório similar ao de Tails?",
+              "tipo": "imagem",
+              "opcoes": {
+                "vermelho": "[imagem: ventilador]",
+                "amarelo": "[imagem: cadeira]",
+                "azul": "[imagem: poltrona]",
+                "verde": "[imagem: ursinho de pelúcia]"
+              },
+              "resposta_correta": "vermelho",
+              "resposta": "ventilador"
+            },
+            {
+              "numero": 28,
+              "enunciado": "Qual objeto faz movimento giratório similar ao de Tails?",
+              "tipo": "imagem",
+              "opcoes": {
+                "vermelho": "[imagem: televisão]",
+                "amarelo": "[imagem: telefone]",
+                "azul": "[imagem: cata-vento/hélice]",
+                "verde": "[imagem: pincel]"
+              },
+              "resposta_correta": "azul",
+              "resposta": "cata-vento/hélice"
+            },
+            {
+              "numero": 29,
+              "enunciado": "Qual objeto faz movimento giratório similar ao de Tails?",
+              "tipo": "imagem",
+              "opcoes": {
+                "vermelho": "[imagem: catavento]",
+                "amarelo": "[imagem: casinha]",
+                "azul": "[imagem: barco]",
+                "verde": "[imagem: cogumelo]"
+              },
+              "resposta_correta": "vermelho",
+              "resposta": "catavento"
+            },
+            {
+              "numero": 30,
+              "enunciado": "Qual objeto faz movimento giratório similar ao de Tails?",
+              "tipo": "imagem",
+              "opcoes": {
+                "vermelho": "[imagem: flor]",
+                "amarelo": "[imagem: sorvete]",
+                "azul": "[imagem: moinho de vento]",
+                "verde": "[imagem: camiseta]"
+              },
+              "resposta_correta": "azul",
+              "resposta": "moinho de vento"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "codigo_acesso": ["LIVRO", "1", "3", "2", "ENTER"],
+      "secoes": [
+        {
+          "titulo": "Sonic e Tails",
+          "descricao": "Leia as palavras numeradas e depois escolha a sequência que melhor descreve as gravuras.",
+          "questoes": [
+            {
+              "numero": 31,
+              "enunciado": "Escolha a sequência correta para descrever a imagem de Tails girando seus rabos. (Tabela 1: Este/raposinho/está/comendo | gato/tem/suspenso/dois | rabos/uma/bons/no | que/giram/verdes/ar)",
+              "opcoes": {
+                "vermelho": "1,2,3,4,11,13,14",
+                "amarelo": "1,5,6,8,11,15",
+                "azul": "1,2,6,8,9,13,14",
+                "verde": "1,5,3,7,12,9"
+              },
+              "resposta_correta": "amarelo",
+              "resposta": "1,5,6,8,11,15 → Este raposinho tem dois bons rabos"
+            },
+            {
+              "numero": 32,
+              "enunciado": "Escolha a sequência correta para descrever a imagem. (Tabela 1)",
+              "opcoes": {
+                "vermelho": "1,5,6,9",
+                "amarelo": "1,2,3,7,12,16",
+                "azul": "1,2,3,4,8,9",
+                "verde": "1,9,3,4,15"
+              },
+              "resposta_correta": "amarelo",
+              "resposta": "1,2,3,7,12,16 → Este raposinho está suspenso no ar"
+            },
+            {
+              "numero": 33,
+              "enunciado": "Escolha a sequência correta para descrever a imagem de Sonic. (Tabela 2: Este/Tails/espinhos/nos | Sonic/tem/vermelhas/verdes | está/e/com/azuis | correndo/botas/pés/molas)",
+              "opcoes": {
+                "vermelho": "5,9,13,11,2",
+                "amarelo": "2,9,13,11,16,4,15",
+                "azul": "5,6,15,11,3,8",
+                "verde": "5,6,3,12"
+              },
+              "resposta_correta": "amarelo",
+              "resposta": "2,9,13,11,16,4,15 → Tails está correndo com botas nos pés"
+            },
+            {
+              "numero": 34,
+              "enunciado": "Escolha a sequência correta para descrever a imagem de Sonic. (Tabela 2)",
+              "opcoes": {
+                "vermelho": "2,9,13,10,5,6,16",
+                "amarelo": "2,6,3,8,4,15",
+                "azul": "5,10,2,6,16,8",
+                "verde": "5,9,13,11,14,7"
+              },
+              "resposta_correta": "verde",
+              "resposta": "5,9,13,11,14,7 → Sonic está correndo com espinhos azuis"
+            },
+            {
+              "numero": 35,
+              "enunciado": "Escolha a sequência correta. (Tabela 3: Tails/grandes/frio/Sonic | cachorro/quente/gostam/é | amigos/são/comer/aventura | que/de/e/adora)",
+              "opcoes": {
+                "vermelho": "1,8,5",
+                "amarelo": "1,15,4,7,14,3",
+                "azul": "4,8,5,14,1",
+                "verde": "4,15,1,10,2,9"
+              },
+              "resposta_correta": "amarelo",
+              "resposta": "1,15,4,7,14,3 → Tails e Sonic gostam de aventura e frio"
+            },
+            {
+              "numero": 36,
+              "enunciado": "Escolha a sequência correta. (Tabela 3)",
+              "opcoes": {
+                "vermelho": "1,15,4,10,12",
+                "amarelo": "1,15,4,7,14,12",
+                "azul": "4,15,1,16,5",
+                "verde": "1,16,11,5,3"
+              },
+              "resposta_correta": "amarelo",
+              "resposta": "1,15,4,7,14,12 → Tails e Sonic gostam de aventura"
+            }
+          ]
+        },
+        {
+          "titulo": "Quem chegou primeiro?",
+          "descricao": "Você lembra quando o coelho e a tartaruga apostaram uma corrida? Pois é, nem sempre quem corre mais é o primeiro a chegar...",
+          "questoes": [
+            {
+              "numero": 37,
+              "enunciado": "O coelho corre muito .... do que a tartaruga.",
+              "opcoes": {
+                "vermelho": "atrás",
+                "amarelo": "menos",
+                "azul": "igual",
+                "verde": "mais"
+              },
+              "resposta_correta": "verde",
+              "resposta": "mais"
+            },
+            {
+              "numero": 38,
+              "enunciado": "No dia da corrida, o coelho saiu na frente e no meio do caminho resolveu .... .",
+              "opcoes": {
+                "vermelho": "descansar",
+                "amarelo": "voltar",
+                "azul": "chegar",
+                "verde": "pular"
+              },
+              "resposta_correta": "vermelho",
+              "resposta": "descansar"
+            },
+            {
+              "numero": 39,
+              "enunciado": "Só que ele dormiu, e nem percebeu quando a .... passou na sua frente.",
+              "opcoes": {
+                "vermelho": "raposa",
+                "amarelo": "tartaruga",
+                "azul": "galinha",
+                "verde": "borboleta"
+              },
+              "resposta_correta": "amarelo",
+              "resposta": "tartaruga"
+            },
+            {
+              "numero": 40,
+              "enunciado": "Foi assim que um bicho bem mais .... acabou vencendo o coelho!",
+              "opcoes": {
+                "vermelho": "lento",
+                "amarelo": "gordo",
+                "azul": "veloz",
+                "verde": "sábio"
+              },
+              "resposta_correta": "vermelho",
+              "resposta": "lento"
+            },
+            {
+              "numero": 41,
+              "enunciado": "Existe um provérbio que diz: devagar se vai ao .... .",
+              "opcoes": {
+                "vermelho": "cinema",
+                "amarelo": "longe",
+                "azul": "rio",
+                "verde": "perto"
+              },
+              "resposta_correta": "amarelo",
+              "resposta": "longe"
+            },
+            {
+              "numero": 42,
+              "enunciado": "Mesmo sendo mais lenta, a tartaruga não .... e acabou ganhando.",
+              "opcoes": {
+                "vermelho": "sorriu",
+                "amarelo": "fugiu",
+                "azul": "caiu",
+                "verde": "desistiu"
+              },
+              "resposta_correta": "verde",
+              "resposta": "desistiu"
+            },
+            {
+              "numero": 43,
+              "enunciado": "No esporte, todos dizem que o importante é .... .",
+              "opcoes": {
+                "vermelho": "competir",
+                "amarelo": "perder",
+                "azul": "sonhar",
+                "verde": "atravessar"
+              },
+              "resposta_correta": "vermelho",
+              "resposta": "competir"
+            },
+            {
+              "numero": 44,
+              "enunciado": "Mas também é muito emocionante .... uma prova esportiva!",
+              "opcoes": {
+                "vermelho": "sair",
+                "amarelo": "atrasar",
+                "azul": "vencer",
+                "verde": "dormir"
+              },
+              "resposta_correta": "azul",
+              "resposta": "vencer"
+            }
+          ]
+        },
+        {
+          "titulo": "A ordem certa",
+          "descricao": "Descubra a ordem certa dos quadrinhos para contar a história daquela corrida em que participaram o coelho e a tartaruga.",
+          "questoes": [
+            {
+              "numero": 45,
+              "enunciado": "O primeiro quadrinho é .... .",
+              "opcoes": {
+                "vermelho": "F",
+                "amarelo": "B",
+                "azul": "C",
+                "verde": "D"
+              },
+              "resposta_correta": "vermelho",
+              "resposta": "F"
+            },
+            {
+              "numero": 46,
+              "enunciado": "O segundo quadrinho é .... .",
+              "opcoes": {
+                "vermelho": "B",
+                "amarelo": "C",
+                "azul": "D",
+                "verde": "F"
+              },
+              "resposta_correta": "azul",
+              "resposta": "D"
+            },
+            {
+              "numero": 47,
+              "enunciado": "O terceiro quadrinho é .... .",
+              "opcoes": {
+                "vermelho": "E",
+                "amarelo": "C",
+                "azul": "A",
+                "verde": "B"
+              },
+              "resposta_correta": "azul",
+              "resposta": "A"
+            },
+            {
+              "numero": 48,
+              "enunciado": "O quarto quadrinho é .... .",
+              "opcoes": {
+                "vermelho": "B",
+                "amarelo": "A",
+                "azul": "D",
+                "verde": "F"
+              },
+              "resposta_correta": "vermelho",
+              "resposta": "B"
+            },
+            {
+              "numero": 49,
+              "enunciado": "O quinto quadrinho é .... .",
+              "opcoes": {
+                "vermelho": "D",
+                "amarelo": "F",
+                "azul": "A",
+                "verde": "B"
+              },
+              "resposta_correta": "vermelho",
+              "resposta": "D (tartaruga ultrapassando o coelho dormindo)"
+            },
+            {
+              "numero": 50,
+              "enunciado": "O sexto quadrinho é .... .",
+              "opcoes": {
+                "vermelho": "D",
+                "amarelo": "E",
+                "azul": "A",
+                "verde": "C"
+              },
+              "resposta_correta": "amarelo",
+              "resposta": "E (tartaruga chegando na linha de chegada)"
+            }
+          ]
+        },
+        {
+          "titulo": "Quebra-cabeça",
+          "descricao": "Complete o quebra-cabeça com a peça correspondente a cada lugar numerado. (Imagem: Sonic e Tails juntos)",
+          "questoes": [
+            {
+              "numero": 51,
+              "enunciado": "Qual peça corresponde ao lugar 51?",
+              "opcoes": {
+                "vermelho": "B",
+                "amarelo": "A",
+                "azul": "E",
+                "verde": "D"
+              },
+              "resposta_correta": "vermelho",
+              "resposta": "B"
+            },
+            {
+              "numero": 52,
+              "enunciado": "Qual peça corresponde ao lugar 52?",
+              "opcoes": {
+                "vermelho": "A",
+                "amarelo": "B",
+                "azul": "C",
+                "verde": "D"
+              },
+              "resposta_correta": "vermelho",
+              "resposta": "A"
+            },
+            {
+              "numero": 53,
+              "enunciado": "Qual peça corresponde ao lugar 53?",
+              "opcoes": {
+                "vermelho": "E",
+                "amarelo": "F",
+                "azul": "A",
+                "verde": "C"
+              },
+              "resposta_correta": "vermelho",
+              "resposta": "E"
+            },
+            {
+              "numero": 54,
+              "enunciado": "Qual peça corresponde ao lugar 54?",
+              "opcoes": {
+                "vermelho": "A",
+                "amarelo": "E",
+                "azul": "F",
+                "verde": "B"
+              },
+              "resposta_correta": "vermelho",
+              "resposta": "A"
+            },
+            {
+              "numero": 55,
+              "enunciado": "Qual peça corresponde ao lugar 55?",
+              "opcoes": {
+                "vermelho": "F",
+                "amarelo": "A",
+                "azul": "C",
+                "verde": "D"
+              },
+              "resposta_correta": "vermelho",
+              "resposta": "F"
+            },
+            {
+              "numero": 56,
+              "enunciado": "Qual peça corresponde ao lugar 56?",
+              "opcoes": {
+                "vermelho": "A",
+                "amarelo": "D",
+                "azul": "C",
+                "verde": "E"
+              },
+              "resposta_correta": "vermelho",
+              "resposta": "A"
+            }
+          ]
+        },
+        {
+          "titulo": "Palavras e cores",
+          "descricao": "Encontre no labirinto de palavras o único caminho que forma uma frase. Quais são as palavras dessa frase? Responda pelo número.",
+          "questoes": [
+            {
+              "numero": 57,
+              "enunciado": "A primeira palavra está dentro da bola .... .",
+              "opcoes": {
+                "vermelho": "18",
+                "amarelo": "2",
+                "azul": "3",
+                "verde": "11"
+              },
+              "resposta_correta": "amarelo",
+              "resposta": "2 (TAILS)"
+            },
+            {
+              "numero": 58,
+              "enunciado": "A segunda palavra está dentro da bola .... .",
+              "opcoes": {
+                "vermelho": "2",
+                "amarelo": "10",
+                "azul": "4",
+                "verde": "3"
+              },
+              "resposta_correta": "verde",
+              "resposta": "3 (PARA)"
+            },
+            {
+              "numero": 59,
+              "enunciado": "A terceira palavra está dentro da bola .... .",
+              "opcoes": {
+                "vermelho": "4",
+                "amarelo": "3",
+                "azul": "2",
+                "verde": "6"
+              },
+              "resposta_correta": "verde",
+              "resposta": "6 (DE) → ou bola com CORRER"
+            },
+            {
+              "numero": 60,
+              "enunciado": "A quarta palavra está dentro da bola .... .",
+              "opcoes": {
+                "vermelho": "3",
+                "amarelo": "15",
+                "azul": "4",
+                "verde": "13"
+              },
+              "resposta_correta": "vermelho",
+              "resposta": "3 (GOSTA) → frase: TAILS GOSTA DE CORRER"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "codigo_acesso": ["LIVRO", "1", "3", "3", "ENTER"],
+      "secoes": [
+        {
+          "titulo": "Supersonic",
+          "descricao": "Você lembra quando o Dr. K. construiu uma esteira para Sonic treinar? Pois é, nosso herói tem paixão pela velocidade, e treinou tanto que um dia ultrapassou a barreira do som, tornando-se um porco-espinho SUPERSÔNICO! Em cada linha, assinale o mais veloz:",
+          "questoes": [
+            {
+              "numero": 61,
+              "enunciado": "Qual é o mais veloz? (avião, balão de ar quente, dirigível, foguete)",
+              "tipo": "imagem",
+              "opcoes": {
+                "vermelho": "[avião a hélice]",
+                "amarelo": "[balão de ar quente]",
+                "azul": "[dirigível]",
+                "verde": "[foguete]"
+              },
+              "resposta_correta": "verde",
+              "resposta": "foguete"
+            },
+            {
+              "numero": 62,
+              "enunciado": "Qual é o mais veloz? (carro de Fórmula 1, carro comum, bicicleta, skate)",
+              "tipo": "imagem",
+              "opcoes": {
+                "vermelho": "[carro de Fórmula 1]",
+                "amarelo": "[carro comum]",
+                "azul": "[bicicleta]",
+                "verde": "[skate]"
+              },
+              "resposta_correta": "vermelho",
+              "resposta": "carro de Fórmula 1"
+            },
+            {
+              "numero": 63,
+              "enunciado": "Qual é o mais veloz? (tartaruga, elefante, leopardo/guepardo, urso)",
+              "tipo": "imagem",
+              "opcoes": {
+                "vermelho": "[tartaruga]",
+                "amarelo": "[elefante]",
+                "azul": "[leopardo/guepardo]",
+                "verde": "[urso]"
+              },
+              "resposta_correta": "azul",
+              "resposta": "leopardo/guepardo"
+            },
+            {
+              "numero": 64,
+              "enunciado": "Qual é o mais veloz? (tubarão, estrela-do-mar, peixe, cavalo-marinho)",
+              "tipo": "imagem",
+              "opcoes": {
+                "vermelho": "[tubarão]",
+                "amarelo": "[estrela-do-mar]",
+                "azul": "[peixe]",
+                "verde": "[cavalo-marinho]"
+              },
+              "resposta_correta": "vermelho",
+              "resposta": "tubarão"
+            },
+            {
+              "numero": 65,
+              "enunciado": "Qual é o mais veloz? (trem bala, locomotiva a vapor, charrete, ônibus)",
+              "tipo": "imagem",
+              "opcoes": {
+                "vermelho": "[trem bala]",
+                "amarelo": "[locomotiva a vapor]",
+                "azul": "[charrete]",
+                "verde": "[ônibus]"
+              },
+              "resposta_correta": "vermelho",
+              "resposta": "trem bala"
+            },
+            {
+              "numero": 66,
+              "enunciado": "Qual é o mais veloz? (abelha, águia, passarinho, borboleta)",
+              "tipo": "imagem",
+              "opcoes": {
+                "vermelho": "[abelha]",
+                "amarelo": "[águia]",
+                "azul": "[passarinho]",
+                "verde": "[borboleta]"
+              },
+              "resposta_correta": "amarelo",
+              "resposta": "águia"
+            }
+          ]
+        },
+        {
+          "titulo": "Em alta velocidade",
+          "descricao": "Qual frase está na ordem correta?",
+          "questoes": [
+            {
+              "numero": 67,
+              "enunciado": "Qual frase está correta?",
+              "opcoes": {
+                "vermelho": "Giram rodas como Sonic os de pés.",
+                "amarelo": "Rodas como giram Sonic pés de os.",
+                "azul": "Os pés de Sonic giram como rodas.",
+                "verde": "Sonic de como rodas os giram pés."
+              },
+              "resposta_correta": "azul",
+              "resposta": "Os pés de Sonic giram como rodas."
+            },
+            {
+              "numero": 68,
+              "enunciado": "Qual frase está correta?",
+              "opcoes": {
+                "vermelho": "Nosso amigo corre em alta velocidade.",
+                "amarelo": "Velocidade alta amigo corre nosso em.",
+                "azul": "Alta corre nosso velocidade em amigo.",
+                "verde": "Em velocidade nosso alta corre amigo."
+              },
+              "resposta_correta": "vermelho",
+              "resposta": "Nosso amigo corre em alta velocidade."
+            },
+            {
+              "numero": 69,
+              "enunciado": "Qual frase está correta?",
+              "opcoes": {
+                "vermelho": "Ele escavou um túnel na montanha.",
+                "amarelo": "Montanha escavou ele túnel na um.",
+                "azul": "Túnel um montanha na escavou ele.",
+                "verde": "Ele túnel montanha escavou um na."
+              },
+              "resposta_correta": "vermelho",
+              "resposta": "Ele escavou um túnel na montanha."
+            },
+            {
+              "numero": 70,
+              "enunciado": "Qual frase está correta?",
+              "opcoes": {
+                "vermelho": "Quentes muito lava são fogo e.",
+                "amarelo": "Fogo e lava são muito quentes.",
+                "azul": "E lava quentes são fogo muito.",
+                "verde": "Muito lava são fogo e quentes."
+              },
+              "resposta_correta": "amarelo",
+              "resposta": "Fogo e lava são muito quentes."
+            },
+            {
+              "numero": 71,
+              "enunciado": "Qual frase está correta?",
+              "opcoes": {
+                "vermelho": "Pedras vulcânicas voam para o alto.",
+                "amarelo": "Alto vulcânicas pedras para o voar.",
+                "azul": "O alto pedras voam vulcânicas para.",
+                "verde": "Vulcânicas voam alto para pedras o."
+              },
+              "resposta_correta": "vermelho",
+              "resposta": "Pedras vulcânicas voam para o alto."
+            },
+            {
+              "numero": 72,
+              "enunciado": "Qual frase está correta?",
+              "opcoes": {
+                "vermelho": "Brancas usa luvas Sonic.",
+                "amarelo": "Luvas usa brancas Sonic.",
+                "azul": "Usa brancas Sonic luvas.",
+                "verde": "Sonic usa luvas brancas."
+              },
+              "resposta_correta": "verde",
+              "resposta": "Sonic usa luvas brancas."
+            }
+          ]
+        },
+        {
+          "titulo": "Forças em movimento",
+          "descricao": "Ligue cada figura com o que ela precisa para se movimentar. (Opções: A=pés, B=gasolina, C=vento, D=carvão, E=bateria, F=ar, G=pilha, H=eletricidade)",
+          "questoes": [
+            {
+              "numero": 73,
+              "enunciado": "O carro precisa de... .",
+              "opcoes": {
+                "vermelho": "A (pés)",
+                "amarelo": "B (gasolina)",
+                "azul": "C (vento)",
+                "verde": "D (carvão)"
+              },
+              "resposta_correta": "amarelo",
+              "resposta": "B — gasolina"
+            },
+            {
+              "numero": 74,
+              "enunciado": "A bicicleta precisa de... .",
+              "opcoes": {
+                "vermelho": "G (pilha)",
+                "amarelo": "A (pés)",
+                "azul": "E (bateria)",
+                "verde": "C (vento)"
+              },
+              "resposta_correta": "amarelo",
+              "resposta": "A — pés"
+            },
+            {
+              "numero": 75,
+              "enunciado": "O trem bala precisa de... .",
+              "opcoes": {
+                "vermelho": "A (pés)",
+                "amarelo": "H (eletricidade)",
+                "azul": "F (ar)",
+                "verde": "B (gasolina)"
+              },
+              "resposta_correta": "amarelo",
+              "resposta": "H — eletricidade"
+            },
+            {
+              "numero": 76,
+              "enunciado": "O moinho de vento precisa de... .",
+              "opcoes": {
+                "vermelho": "D (carvão)",
+                "amarelo": "F (ar)",
+                "azul": "C (vento)",
+                "verde": "A (pés)"
+              },
+              "resposta_correta": "azul",
+              "resposta": "C — vento"
+            },
+            {
+              "numero": 77,
+              "enunciado": "A locomotiva a vapor (trem antigo) precisa de... .",
+              "opcoes": {
+                "vermelho": "H (eletricidade)",
+                "amarelo": "D (carvão)",
+                "azul": "A (pés)",
+                "verde": "B (gasolina)"
+              },
+              "resposta_correta": "amarelo",
+              "resposta": "D — carvão"
+            },
+            {
+              "numero": 78,
+              "enunciado": "O relógio (despertador) precisa de... .",
+              "opcoes": {
+                "vermelho": "E (bateria)",
+                "amarelo": "F (ar)",
+                "azul": "A (pés)",
+                "verde": "D (carvão)"
+              },
+              "resposta_correta": "vermelho",
+              "resposta": "E — bateria"
+            },
+            {
+              "numero": 79,
+              "enunciado": "O balão de ar quente precisa de... .",
+              "opcoes": {
+                "vermelho": "B (gasolina)",
+                "amarelo": "A (pés)",
+                "azul": "D (carvão)",
+                "verde": "F (ar)"
+              },
+              "resposta_correta": "verde",
+              "resposta": "F — ar"
+            },
+            {
+              "numero": 80,
+              "enunciado": "O carrinho de controle remoto precisa de... .",
+              "opcoes": {
+                "vermelho": "A (pés)",
+                "amarelo": "G (pilha)",
+                "azul": "D (carvão)",
+                "verde": "C (vento)"
+              },
+              "resposta_correta": "amarelo",
+              "resposta": "G — pilha"
+            }
+          ]
+        },
+        {
+          "titulo": "Voando com os pássaros",
+          "descricao": "Antes de chegar aos foguetes mais velozes que o som, o homem inventou vários tipos de objetos para voar. Ordene estas invenções, da mais antiga para a mais moderna. (A=ônibus espacial, B=avião dos irmãos Wright, C=avião a jato supersônico, D=biplano antigo, E=biplano, F=balão de ar quente)",
+          "questoes": [
+            {
+              "numero": 81,
+              "enunciado": "O primeiro (mais antigo) é... .",
+              "opcoes": {
+                "vermelho": "F",
+                "amarelo": "B",
+                "azul": "C",
+                "verde": "D"
+              },
+              "resposta_correta": "vermelho",
+              "resposta": "F — balão de ar quente"
+            },
+            {
+              "numero": 82,
+              "enunciado": "O segundo é... .",
+              "opcoes": {
+                "vermelho": "F",
+                "amarelo": "C",
+                "azul": "A",
+                "verde": "B"
+              },
+              "resposta_correta": "verde",
+              "resposta": "B — avião dos irmãos Wright"
+            },
+            {
+              "numero": 83,
+              "enunciado": "O terceiro é... .",
+              "opcoes": {
+                "vermelho": "B",
+                "amarelo": "D",
+                "azul": "B",
+                "verde": "F"
+              },
+              "resposta_correta": "amarelo",
+              "resposta": "D — biplano antigo"
+            },
+            {
+              "numero": 84,
+              "enunciado": "O quarto é... .",
+              "opcoes": {
+                "vermelho": "D",
+                "amarelo": "E",
+                "azul": "B",
+                "verde": "A"
+              },
+              "resposta_correta": "amarelo",
+              "resposta": "E — biplano"
+            },
+            {
+              "numero": 85,
+              "enunciado": "O quinto é... .",
+              "opcoes": {
+                "vermelho": "E",
+                "amarelo": "B",
+                "azul": "F",
+                "verde": "C"
+              },
+              "resposta_correta": "verde",
+              "resposta": "C — avião a jato supersônico"
+            },
+            {
+              "numero": 86,
+              "enunciado": "O sexto (mais moderno) é... .",
+              "opcoes": {
+                "vermelho": "E",
+                "amarelo": "D",
+                "azul": "A",
+                "verde": "C"
+              },
+              "resposta_correta": "azul",
+              "resposta": "A — ônibus espacial"
+            }
+          ]
+        },
+        {
+          "titulo": "A lenda de Ícaro",
+          "descricao": "O sonho de voar é muito antigo. Já na velha Grécia, um jovem chamado Ícaro fabricou asas feitas com penas de pássaros coladas com cera.",
+          "questoes": [
+            {
+              "numero": 87,
+              "enunciado": "Ícaro conseguiu voar! Só que quando chegou perto do Sol, o calor .... a cera das asas.",
+              "opcoes": {
+                "vermelho": "congelou",
+                "amarelo": "esqueceu",
+                "azul": "derreteu",
+                "verde": "endureceu"
+              },
+              "resposta_correta": "azul",
+              "resposta": "derreteu"
+            },
+            {
+              "numero": 88,
+              "enunciado": "As asas do pobre Ícaro se desmancharam e ele caiu no .... .",
+              "opcoes": {
+                "vermelho": "céu",
+                "amarelo": "aeroporto",
+                "azul": "mar",
+                "verde": "espaço"
+              },
+              "resposta_correta": "azul",
+              "resposta": "mar"
+            },
+            {
+              "numero": 89,
+              "enunciado": "Muito tempo depois, o sonho de voar se tornou realidade quando .... inventou o avião.",
+              "opcoes": {
+                "vermelho": "Santo do Monte",
+                "amarelo": "Santos Dumont",
+                "azul": "Santo Antônio",
+                "verde": "Monte Santo"
+              },
+              "resposta_correta": "amarelo",
+              "resposta": "Santos Dumont"
+            },
+            {
+              "numero": 90,
+              "enunciado": "Existe um esporte moderno que lembra o vôo de Ícaro: é a .... .",
+              "opcoes": {
+                "vermelho": "asa-delta",
+                "amarelo": "windsurf",
+                "azul": "tênis",
+                "verde": "futebol"
+              },
+              "resposta_correta": "vermelho",
+              "resposta": "asa-delta"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "codigo_acesso": ["LIVRO", "1", "3", "4", "ENTER"],
+      "secoes": [
+        {
+          "titulo": "Veloz como o vento",
+          "descricao": "A velocidade que Sonic tanto admira também aparece na natureza. Você já reparou que o vento pode atingir altas velocidades? Para saber mais sobre os ventos, complete as questões.",
+          "questoes": [
+            {
+              "numero": 91,
+              "enunciado": "O vento é .... em movimento.",
+              "opcoes": {
+                "vermelho": "sol",
+                "amarelo": "água",
+                "azul": "terra",
+                "verde": "ar"
+              },
+              "resposta_correta": "verde",
+              "resposta": "ar"
+            },
+            {
+              "numero": 92,
+              "enunciado": "O ar está .... do planeta Terra.",
+              "opcoes": {
+                "vermelho": "embaixo",
+                "amarelo": "em volta",
+                "azul": "atrás",
+                "verde": "igual"
+              },
+              "resposta_correta": "amarelo",
+              "resposta": "em volta"
+            },
+            {
+              "numero": 93,
+              "enunciado": "Os raios do Sol .... o ar.",
+              "opcoes": {
+                "vermelho": "esquentam",
+                "amarelo": "escurecem",
+                "azul": "esfriam",
+                "verde": "descem"
+              },
+              "resposta_correta": "vermelho",
+              "resposta": "esquentam"
+            },
+            {
+              "numero": 94,
+              "enunciado": "O ar quente é mais .... que o ar frio.",
+              "opcoes": {
+                "vermelho": "difícil",
+                "amarelo": "bonito",
+                "azul": "triste",
+                "verde": "leve"
+              },
+              "resposta_correta": "verde",
+              "resposta": "leve"
+            },
+            {
+              "numero": 95,
+              "enunciado": "Então ele .... para o alto.",
+              "opcoes": {
+                "vermelho": "anda",
+                "amarelo": "sobe",
+                "azul": "grita",
+                "verde": "chora"
+              },
+              "resposta_correta": "amarelo",
+              "resposta": "sobe"
+            },
+            {
+              "numero": 96,
+              "enunciado": "Enquanto isso, o ar frio .... .",
+              "opcoes": {
+                "vermelho": "brinca",
+                "amarelo": "desce",
+                "azul": "dorme",
+                "verde": "pinta"
+              },
+              "resposta_correta": "amarelo",
+              "resposta": "desce"
+            },
+            {
+              "numero": 97,
+              "enunciado": "Esse sobe e desce do ar forma os .... que sopram sobre a Terra.",
+              "opcoes": {
+                "vermelho": "desertos",
+                "amarelo": "mares",
+                "azul": "ilhas",
+                "verde": "ventos"
+              },
+              "resposta_correta": "verde",
+              "resposta": "ventos"
+            }
+          ]
+        },
+        {
+          "titulo": "Ventos destruidores",
+          "descricao": "Você sabia que a velocidade do vento pode chegar a 200 quilômetros por hora? Então ele se torna muito perigoso, arrancando árvores, derrubando casas e fazendo muitos estragos. Ajude Sonic a completar as questões e saiba mais sobre os perigos do vento.",
+          "questoes": [
+            {
+              "numero": 98,
+              "enunciado": "O vento que apenas movimenta as folhas das árvores é chamado de .... .",
+              "opcoes": {
+                "vermelho": "brasa",
+                "amarelo": "Elisa",
+                "azul": "brisa",
+                "verde": "brita"
+              },
+              "resposta_correta": "azul",
+              "resposta": "brisa"
+            },
+            {
+              "numero": 99,
+              "enunciado": "O vento um pouco mais forte, que balança as árvores se chama .... .",
+              "opcoes": {
+                "vermelho": "ventania",
+                "amarelo": "calmaria",
+                "azul": "aragem",
+                "verde": "ventarola"
+              },
+              "resposta_correta": "vermelho",
+              "resposta": "ventania"
+            },
+            {
+              "numero": 100,
+              "enunciado": "Quando a velocidade do vento está acima de 90 quilômetros por hora ele recebe o nome de .... .",
+              "opcoes": {
+                "vermelho": "furacão",
+                "amarelo": "vulcão",
+                "azul": "inundação",
+                "verde": "sertão"
+              },
+              "resposta_correta": "vermelho",
+              "resposta": "furacão"
+            },
+            {
+              "numero": 101,
+              "enunciado": "Outro nome para esse tipo de vento é .... .",
+              "opcoes": {
+                "vermelho": "ciclovia",
+                "amarelo": "ciclista",
+                "azul": "ciclope",
+                "verde": "ciclone"
+              },
+              "resposta_correta": "verde",
+              "resposta": "ciclone"
+            },
+            {
+              "numero": 102,
+              "enunciado": "Furacões acontecem nas regiões quentes, próximas ao .... .",
+              "opcoes": {
+                "vermelho": "Equador",
+                "amarelo": "Pólo Norte",
+                "azul": "Pólo Sul",
+                "verde": "Meridiano"
+              },
+              "resposta_correta": "vermelho",
+              "resposta": "Equador"
+            },
+            {
+              "numero": 103,
+              "enunciado": "Mais veloz que o vento é o .... .",
+              "opcoes": {
+                "vermelho": "caracol",
+                "amarelo": "sapo",
+                "azul": "sapoti",
+                "verde": "som"
+              },
+              "resposta_correta": "verde",
+              "resposta": "som"
+            }
+          ]
+        },
+        {
+          "titulo": "O som e a luz",
+          "descricao": "Você já observou o céu num dia de tempestade? A gente vê um grande espetáculo de relâmpagos, raios e trovões que fazem uma barulheira danada! Pois o som e a luz também são campeões de velocidade.",
+          "questoes": [
+            {
+              "numero": 104,
+              "enunciado": "Vemos o clarão do raio .... de escutar o barulho do trovão.",
+              "opcoes": {
+                "vermelho": "depois",
+                "amarelo": "antes",
+                "azul": "atrás",
+                "verde": "ontem"
+              },
+              "resposta_correta": "amarelo",
+              "resposta": "antes"
+            },
+            {
+              "numero": 105,
+              "enunciado": "Isso acontece porque a luz é .... veloz que o som.",
+              "opcoes": {
+                "vermelho": "mais",
+                "amarelo": "menos",
+                "azul": "igual",
+                "verde": "maior"
+              },
+              "resposta_correta": "vermelho",
+              "resposta": "mais"
+            },
+            {
+              "numero": 106,
+              "enunciado": "Um foguete .... é mais rápido que o som.",
+              "opcoes": {
+                "vermelho": "elétrico",
+                "amarelo": "parabólico",
+                "azul": "supersônico",
+                "verde": "azul"
+              },
+              "resposta_correta": "azul",
+              "resposta": "supersônico"
+            },
+            {
+              "numero": 107,
+              "enunciado": "Mas .... existe foguete mais rápido que a luz.",
+              "opcoes": {
+                "vermelho": "sim",
+                "amarelo": "tão",
+                "azul": "não",
+                "verde": "talvez"
+              },
+              "resposta_correta": "azul",
+              "resposta": "não"
+            },
+            {
+              "numero": 108,
+              "enunciado": "A Terra e a Lua não têm .... própria.",
+              "opcoes": {
+                "vermelho": "água",
+                "amarelo": "vida",
+                "azul": "sombra",
+                "verde": "luz"
+              },
+              "resposta_correta": "verde",
+              "resposta": "luz"
+            },
+            {
+              "numero": 109,
+              "enunciado": "Elas recebem a luz do .... .",
+              "opcoes": {
+                "vermelho": "Marte",
+                "amarelo": "satélite",
+                "azul": "planeta",
+                "verde": "Sol"
+              },
+              "resposta_correta": "verde",
+              "resposta": "Sol"
+            },
+            {
+              "numero": 110,
+              "enunciado": "A Terra demora .... dias para dar uma volta em torno do Sol.",
+              "opcoes": {
+                "vermelho": "30",
+                "amarelo": "14",
+                "azul": "365",
+                "verde": "210"
+              },
+              "resposta_correta": "azul",
+              "resposta": "365"
+            }
+          ]
+        },
+        {
+          "titulo": "Rápido como um raio",
+          "descricao": "Outro campeão de velocidade é o raio. Ele acontece quando a Terra atrai a eletricidade contida em uma nuvem. Saiba mais sobre esse fenômeno completando a cruzada:",
+          "questoes": [
+            {
+              "numero": 111,
+              "enunciado": "O raio produz um .... muito forte. (Horizontal)",
+              "opcoes": {
+                "vermelho": "perfume",
+                "amarelo": "sabão",
+                "azul": "clarão",
+                "verde": "cascão"
+              },
+              "resposta_correta": "azul",
+              "resposta": "clarão"
+            },
+            {
+              "numero": 112,
+              "enunciado": "Também faz muito .... . (Horizontal)",
+              "opcoes": {
+                "vermelho": "dinheiro",
+                "amarelo": "bagunça",
+                "azul": "sujeira",
+                "verde": "barulho"
+              },
+              "resposta_correta": "verde",
+              "resposta": "barulho"
+            },
+            {
+              "numero": 113,
+              "enunciado": "O raio é uma descarga .... . (Horizontal)",
+              "opcoes": {
+                "vermelho": "patética",
+                "amarelo": "eclética",
+                "azul": "ética",
+                "verde": "elétrica"
+              },
+              "resposta_correta": "verde",
+              "resposta": "elétrica"
+            },
+            {
+              "numero": 114,
+              "enunciado": "O clarão do raio é o .... . (Vertical)",
+              "opcoes": {
+                "vermelho": "relâmpago",
+                "amarelo": "pirilampo",
+                "azul": "ângulo",
+                "verde": "âmago"
+              },
+              "resposta_correta": "vermelho",
+              "resposta": "relâmpago"
+            },
+            {
+              "numero": 115,
+              "enunciado": "O barulho do raio é o .... . (Vertical)",
+              "opcoes": {
+                "vermelho": "trovão",
+                "amarelo": "canção",
+                "azul": "medalhão",
+                "verde": "turbilhão"
+              },
+              "resposta_correta": "vermelho",
+              "resposta": "trovão"
+            },
+            {
+              "numero": 116,
+              "enunciado": "O raio atinge os lugares mais .... . (Vertical)",
+              "opcoes": {
+                "vermelho": "movimentados",
+                "amarelo": "escuros",
+                "azul": "altos",
+                "verde": "bonitos"
+              },
+              "resposta_correta": "azul",
+              "resposta": "altos"
+            }
+          ]
+        },
+        {
+          "titulo": "A velocidade da luz",
+          "descricao": "A luz é tão rápida que vem do Sol à Terra em 8 minutos. Isto porque a velocidade da luz é nada menos do que 300 mil quilômetros por segundo! Em cada linha, escolha o objeto que fornece luz.",
+          "questoes": [
+            {
+              "numero": 117,
+              "enunciado": "Qual objeto fornece luz?",
+              "tipo": "imagem",
+              "opcoes": {
+                "vermelho": "[sapato]",
+                "amarelo": "[rato]",
+                "azul": "[tomate]",
+                "verde": "[vela]"
+              },
+              "resposta_correta": "verde",
+              "resposta": "vela"
+            },
+            {
+              "numero": 118,
+              "enunciado": "Qual objeto fornece luz?",
+              "tipo": "imagem",
+              "opcoes": {
+                "vermelho": "[abelha]",
+                "amarelo": "[lanterna]",
+                "azul": "[cachorro]",
+                "verde": "[relógio]"
+              },
+              "resposta_correta": "amarelo",
+              "resposta": "lanterna"
+            },
+            {
+              "numero": 119,
+              "enunciado": "Qual objeto fornece luz?",
+              "tipo": "imagem",
+              "opcoes": {
+                "vermelho": "[sofá]",
+                "amarelo": "[refletor/holofote]",
+                "azul": "[bolo]",
+                "verde": "[caneca]"
+              },
+              "resposta_correta": "amarelo",
+              "resposta": "refletor/holofote"
+            },
+            {
+              "numero": 120,
+              "enunciado": "Qual objeto fornece luz?",
+              "tipo": "imagem",
+              "opcoes": {
+                "vermelho": "[caneta]",
+                "amarelo": "[coruja]",
+                "azul": "[martelo]",
+                "verde": "[fogueira]"
+              },
+              "resposta_correta": "verde",
+              "resposta": "fogueira"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "codigo_acesso": ["LIVRO", "1", "3", "5", "ENTER"],
+      "secoes": [
+        {
+          "titulo": "O jeito mais rápido",
+          "descricao": "Escolha a resposta certa para cada questão.",
+          "questoes": [
+            {
+              "numero": 121,
+              "enunciado": "Qual destes é o meio mais rápido de se movimentar?",
+              "opcoes": {
+                "vermelho": "sussurrar",
+                "amarelo": "andar",
+                "azul": "engatinhar",
+                "verde": "correr"
+              },
+              "resposta_correta": "verde",
+              "resposta": "correr"
+            },
+            {
+              "numero": 122,
+              "enunciado": "Qual destes é o meio mais rápido de se movimentar na água?",
+              "opcoes": {
+                "vermelho": "saltitar",
+                "amarelo": "nadar",
+                "azul": "lamber",
+                "verde": "boiar"
+              },
+              "resposta_correta": "amarelo",
+              "resposta": "nadar"
+            },
+            {
+              "numero": 123,
+              "enunciado": "A .... voa mais rápido que a gaivota.",
+              "opcoes": {
+                "vermelho": "galinha",
+                "amarelo": "águia",
+                "azul": "borboleta",
+                "verde": "pata"
+              },
+              "resposta_correta": "amarelo",
+              "resposta": "águia"
+            },
+            {
+              "numero": 124,
+              "enunciado": "O canguru salta mais longe que o .... .",
+              "opcoes": {
+                "vermelho": "mesa",
+                "amarelo": "minhoca",
+                "azul": "cadeira",
+                "verde": "sapo"
+              },
+              "resposta_correta": "verde",
+              "resposta": "sapo"
+            },
+            {
+              "numero": 125,
+              "enunciado": "Tubarões nadam mais rápido que .... .",
+              "opcoes": {
+                "vermelho": "lambaris",
+                "amarelo": "gatos",
+                "azul": "violões",
+                "verde": "pedras"
+              },
+              "resposta_correta": "vermelho",
+              "resposta": "lambaris"
+            },
+            {
+              "numero": 126,
+              "enunciado": "O carro de Fórmula 1 é .... veloz que o fusca.",
+              "opcoes": {
+                "vermelho": "igual",
+                "amarelo": "mais",
+                "azul": "menos",
+                "verde": "tarde"
+              },
+              "resposta_correta": "amarelo",
+              "resposta": "mais"
+            }
+          ]
+        },
+        {
+          "titulo": "As partes do corpo",
+          "descricao": "Sonic treina todos os dias para ficar em forma e desenvolver sua velocidade. Enquanto ele se exercita, siga as linhas e encontre a letra correspondente a cada parte do corpo de Sonic. (A=pé esquerdo, B=pé direito, C=mão esquerda, D=cabeça, E=focinho, F=pé direito/esquerdo)",
+          "questoes": [
+            {
+              "numero": 127,
+              "enunciado": "CABEÇA — siga a linha e encontre a letra.",
+              "opcoes": {
+                "vermelho": "A",
+                "amarelo": "B",
+                "azul": "C",
+                "verde": "D"
+              },
+              "resposta_correta": "verde",
+              "resposta": "D"
+            },
+            {
+              "numero": 128,
+              "enunciado": "FOCINHO — siga a linha e encontre a letra.",
+              "opcoes": {
+                "vermelho": "E",
+                "amarelo": "A",
+                "azul": "F",
+                "verde": "B"
+              },
+              "resposta_correta": "vermelho",
+              "resposta": "E"
+            },
+            {
+              "numero": 129,
+              "enunciado": "MÃO DIREITA — siga a linha e encontre a letra.",
+              "opcoes": {
+                "vermelho": "D",
+                "amarelo": "A",
+                "azul": "F",
+                "verde": "C"
+              },
+              "resposta_correta": "azul",
+              "resposta": "C (mão apontando para a direita)"
+            },
+            {
+              "numero": 130,
+              "enunciado": "MÃO ESQUERDA — siga a linha e encontre a letra.",
+              "opcoes": {
+                "vermelho": "A",
+                "amarelo": "F",
+                "azul": "C",
+                "verde": "D"
+              },
+              "resposta_correta": "vermelho",
+              "resposta": "A (mão no quadril)"
+            },
+            {
+              "numero": 131,
+              "enunciado": "PÉ DIREITO — siga a linha e encontre a letra.",
+              "opcoes": {
+                "vermelho": "F",
+                "amarelo": "D",
+                "azul": "B",
+                "verde": "E"
+              },
+              "resposta_correta": "azul",
+              "resposta": "B"
+            },
+            {
+              "numero": 132,
+              "enunciado": "PÉ ESQUERDO — siga a linha e encontre a letra.",
+              "opcoes": {
+                "vermelho": "F",
+                "amarelo": "C",
+                "azul": "E",
+                "verde": "B"
+              },
+              "resposta_correta": "vermelho",
+              "resposta": "F"
+            }
+          ]
+        },
+        {
+          "titulo": "Palavras em movimento",
+          "descricao": "Cada uma das frases abaixo tem uma palavra que indica movimento, ação. Vamos encontrá-las? (As palavras de cada questão estão dispostas em quatro blocos coloridos: vermelho, amarelo, azul e verde)",
+          "questoes": [
+            {
+              "numero": 133,
+              "enunciado": "Qual palavra indica movimento/ação na frase? TAILS | GIRA | SEUS | RABOS",
+              "opcoes": {
+                "vermelho": "TAILS",
+                "amarelo": "GIRA",
+                "azul": "SEUS",
+                "verde": "RABOS"
+              },
+              "resposta_correta": "amarelo",
+              "resposta": "GIRA"
+            },
+            {
+              "numero": 134,
+              "enunciado": "Qual palavra indica movimento/ação na frase? JOE | SUSHI | MERGULHA | FUNDO",
+              "opcoes": {
+                "vermelho": "JOE",
+                "amarelo": "SUSHI",
+                "azul": "MERGULHA",
+                "verde": "FUNDO"
+              },
+              "resposta_correta": "azul",
+              "resposta": "MERGULHA"
+            },
+            {
+              "numero": 135,
+              "enunciado": "Qual palavra indica movimento/ação na frase? SALLY ACORN | SABE | SALTAR | BEM",
+              "opcoes": {
+                "vermelho": "SALLY ACORN",
+                "amarelo": "SABE",
+                "azul": "SALTAR",
+                "verde": "BEM"
+              },
+              "resposta_correta": "azul",
+              "resposta": "SALTAR"
+            },
+            {
+              "numero": 136,
+              "enunciado": "Qual palavra indica movimento/ação na frase? SONIC | ADORA | CORRER | BASTANTE",
+              "opcoes": {
+                "vermelho": "SONIC",
+                "amarelo": "ADORA",
+                "azul": "CORRER",
+                "verde": "BASTANTE"
+              },
+              "resposta_correta": "azul",
+              "resposta": "CORRER"
+            },
+            {
+              "numero": 137,
+              "enunciado": "Qual palavra indica movimento/ação na frase? ROBOTINIK | GOSTA | DE | ATACAR",
+              "opcoes": {
+                "vermelho": "ROBOTINIK",
+                "amarelo": "GOSTA",
+                "azul": "DE",
+                "verde": "ATACAR"
+              },
+              "resposta_correta": "verde",
+              "resposta": "ATACAR"
+            },
+            {
+              "numero": 138,
+              "enunciado": "Qual palavra indica movimento/ação na frase? QUEM | CONSEGUE | VOAR | ALTO?",
+              "opcoes": {
+                "vermelho": "QUEM",
+                "amarelo": "CONSEGUE",
+                "azul": "VOAR",
+                "verde": "ALTO?"
+              },
+              "resposta_correta": "azul",
+              "resposta": "VOAR"
+            }
+          ]
+        },
+        {
+          "titulo": "Quebra-cabeça",
+          "descricao": "Complete o quebra-cabeça com a peça correspondente a cada lugar numerado. (Imagem: Sonic com argolas e palmeiras ao fundo — peças A a H)",
+          "questoes": [
+            {
+              "numero": 139,
+              "enunciado": "Qual peça corresponde ao lugar 139?",
+              "opcoes": {
+                "vermelho": "A",
+                "amarelo": "C",
+                "azul": "H",
+                "verde": "D"
+              },
+              "resposta_correta": "vermelho",
+              "resposta": "A"
+            },
+            {
+              "numero": 140,
+              "enunciado": "Qual peça corresponde ao lugar 140?",
+              "opcoes": {
+                "vermelho": "C",
+                "amarelo": "A",
+                "azul": "E",
+                "verde": "B"
+              },
+              "resposta_correta": "vermelho",
+              "resposta": "C"
+            },
+            {
+              "numero": 141,
+              "enunciado": "Qual peça corresponde ao lugar 141?",
+              "opcoes": {
+                "vermelho": "D",
+                "amarelo": "H",
+                "azul": "F",
+                "verde": "A"
+              },
+              "resposta_correta": "vermelho",
+              "resposta": "D"
+            },
+            {
+              "numero": 142,
+              "enunciado": "Qual peça corresponde ao lugar 142?",
+              "opcoes": {
+                "vermelho": "F",
+                "amarelo": "H",
+                "azul": "B",
+                "verde": "F"
+              },
+              "resposta_correta": "vermelho",
+              "resposta": "F"
+            },
+            {
+              "numero": 143,
+              "enunciado": "Qual peça corresponde ao lugar 143?",
+              "opcoes": {
+                "vermelho": "A",
+                "amarelo": "C",
+                "azul": "B",
+                "verde": "D"
+              },
+              "resposta_correta": "azul",
+              "resposta": "B"
+            },
+            {
+              "numero": 144,
+              "enunciado": "Qual peça corresponde ao lugar 144?",
+              "opcoes": {
+                "vermelho": "D",
+                "amarelo": "A",
+                "azul": "F",
+                "verde": "H"
+              },
+              "resposta_correta": "amarelo",
+              "resposta": "A"
+            },
+            {
+              "numero": 145,
+              "enunciado": "Qual peça corresponde ao lugar 145?",
+              "opcoes": {
+                "vermelho": "A",
+                "amarelo": "B",
+                "azul": "C",
+                "verde": "G"
+              },
+              "resposta_correta": "verde",
+              "resposta": "G"
+            },
+            {
+              "numero": 146,
+              "enunciado": "Qual peça corresponde ao lugar 146?",
+              "opcoes": {
+                "vermelho": "D",
+                "amarelo": "G",
+                "azul": "A",
+                "verde": "E"
+              },
+              "resposta_correta": "vermelho",
+              "resposta": "D"
+            }
+          ]
+        },
+        {
+          "titulo": "O que eles estão fazendo?",
+          "descricao": "No inverno ou no verão, Sonic e Tails adoram praticar esportes que ajudam a desenvolver a rapidez e aumentar a energia. Encontre a palavra que descreve o que eles estão fazendo.",
+          "questoes": [
+            {
+              "numero": 147,
+              "enunciado": "Sonic está ... .",
+              "opcoes": {
+                "vermelho": "parando",
+                "amarelo": "pulando",
+                "azul": "vencendo",
+                "verde": "esquiando"
+              },
+              "resposta_correta": "verde",
+              "resposta": "esquiando"
+            },
+            {
+              "numero": 148,
+              "enunciado": "... na .... .",
+              "opcoes": {
+                "vermelho": "comendo",
+                "amarelo": "subindo",
+                "azul": "montanha",
+                "verde": "dormindo"
+              },
+              "resposta_correta": "azul",
+              "resposta": "montanha"
+            },
+            {
+              "numero": 149,
+              "enunciado": "Tails está .... .",
+              "opcoes": {
+                "vermelho": "sonhando",
+                "amarelo": "escalando",
+                "azul": "mergulhando",
+                "verde": "flutuando"
+              },
+              "resposta_correta": "verde",
+              "resposta": "flutuando"
+            },
+            {
+              "numero": 150,
+              "enunciado": "... sobre o .... .",
+              "opcoes": {
+                "vermelho": "ouvindo",
+                "amarelo": "danando",
+                "azul": "gelo",
+                "verde": "lendo"
+              },
+              "resposta_correta": "azul",
+              "resposta": "gelo"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
