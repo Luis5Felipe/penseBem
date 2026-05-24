@@ -13,11 +13,85 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { styles } from '@/components/game-styles';
-import questions from '@/json_com_perguntas/questions.json';
+import gameData from '@/json_com_perguntas/pense_bem_sonic_tails.json';
 
 if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental) {
   UIManager.setLayoutAnimationEnabledExperimental(true);
 }
+
+const MAX_ATTEMPTS = 3;
+const QUESTION_TIME_SECONDS = 30;
+
+const OPTION_BY_COLOR = {
+  vermelho: { id: 'A', color: '#EA4235' },
+  amarelo: { id: 'B', color: '#F1C40F' },
+  azul: { id: 'C', color: '#2E6BE6' },
+  verde: { id: 'D', color: '#21A366' },
+} as const;
+
+type OptionColorName = keyof typeof OPTION_BY_COLOR;
+
+type RawQuestion = {
+  numero: number;
+  enunciado: string;
+  tipo?: string;
+  opcoes: Record<OptionColorName, string>;
+  resposta_correta: OptionColorName;
+  resposta: string;
+};
+
+type GameQuestion = {
+  id: string;
+  code: string;
+  sectionTitle: string;
+  sectionDescription: string;
+  number: number;
+  question: string;
+  answer: string;
+  correctAnswer: string;
+  options: {
+    id: string;
+    color: string;
+    colorName: OptionColorName;
+    text: string;
+  }[];
+};
+
+function buildQuestions(): GameQuestion[] {
+  return gameData.programas.flatMap((programa) => {
+    const code = programa.codigo_acesso.join(' ');
+
+    return programa.secoes.flatMap((secao) =>
+      secao.questoes.map((rawQuestao) => {
+        const questao = rawQuestao as RawQuestion;
+
+        if (!(questao.resposta_correta in OPTION_BY_COLOR)) {
+          throw new Error(`Resposta correta invalida na questao ${questao.numero}: ${questao.resposta_correta}`);
+        }
+
+        const options = (Object.entries(questao.opcoes) as [OptionColorName, string][]).map(([colorName, text]) => ({
+          ...OPTION_BY_COLOR[colorName],
+          colorName,
+          text,
+        }));
+
+        return {
+          id: `${programa.id}-${questao.numero}`,
+          code,
+          sectionTitle: secao.titulo,
+          sectionDescription: secao.descricao,
+          number: questao.numero,
+          question: questao.enunciado,
+          answer: questao.resposta,
+          correctAnswer: OPTION_BY_COLOR[questao.resposta_correta].id,
+          options,
+        };
+      })
+    );
+  });
+}
+
+const questions = buildQuestions();
 
 type Palette = {
   page: string;
@@ -62,9 +136,11 @@ function formatTime(seconds: number): string {
 export default function GameScreen() {
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
-  const [timeLeft, setTimeLeft] = useState(30);
-  const [gameStatus, setGameStatus] = useState<'playing' | 'answered' | 'timeout'>('playing');
+  const [timeLeft, setTimeLeft] = useState(QUESTION_TIME_SECONDS);
+  const [gameStatus, setGameStatus] = useState<'playing' | 'answered' | 'timeout' | 'finished'>('playing');
   const [questionIndex, setQuestionIndex] = useState(0);
+  const [attemptsUsed, setAttemptsUsed] = useState(0);
+  const [score, setScore] = useState(0);
   const { width } = useWindowDimensions();
   const isWide = width >= 900;
   const isSmall = width < 360;
@@ -72,6 +148,8 @@ export default function GameScreen() {
   const isUrgent = timeLeft <= 10;
   const currentQuestion = questions[questionIndex];
   const isCorrectAnswer = gameStatus === 'answered' && selectedOption === currentQuestion.correctAnswer;
+  const hasMoreQuestions = questionIndex < questions.length - 1;
+  const attemptNumber = Math.min(attemptsUsed + 1, MAX_ATTEMPTS);
 
   useEffect(() => {
     if (gameStatus !== 'playing') return;
@@ -103,14 +181,43 @@ export default function GameScreen() {
   function handleConfirm() {
     if (!selectedOption || gameStatus !== 'playing') return;
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+    if (selectedOption === currentQuestion.correctAnswer) {
+      setScore((current) => current + 1);
+    } else {
+      setAttemptsUsed((current) => current + 1);
+    }
     setGameStatus('answered');
   }
 
   function handleRestart() {
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     setSelectedOption(null);
-    setTimeLeft(30);
+    setTimeLeft(QUESTION_TIME_SECONDS);
+    setAttemptsUsed(0);
+    setScore(0);
+    setQuestionIndex(0);
     setGameStatus('playing');
+  }
+
+  function handleContinue() {
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+
+    if (gameStatus === 'answered' && !isCorrectAnswer && attemptsUsed < MAX_ATTEMPTS) {
+      setSelectedOption(null);
+      setGameStatus('playing');
+      return;
+    }
+
+    if (hasMoreQuestions) {
+      setQuestionIndex((current) => current + 1);
+      setSelectedOption(null);
+      setAttemptsUsed(0);
+      setTimeLeft(QUESTION_TIME_SECONDS);
+      setGameStatus('playing');
+      return;
+    }
+
+    setGameStatus('finished');
   }
 
   return (
@@ -159,19 +266,25 @@ export default function GameScreen() {
 
           <View style={[styles.gameCard, { backgroundColor: palette.panel, borderColor: palette.panelBorder }]}>
             <View style={[styles.roundHeader, { borderBottomColor: palette.panelBorder }]}>
-              <Text style={[styles.roundCode, { color: isDarkMode ? '#FFD700' : palette.text }]}>021 - 1</Text>
+              <Text style={[styles.roundCode, { color: isDarkMode ? '#FFD700' : palette.text }]}>
+                {String(currentQuestion.number).padStart(3, '0')}
+              </Text>
               <View style={[styles.livePill, { backgroundColor: palette.badge }]}>
-                <Text style={[styles.livePillText, { color: isDarkMode ? '#FFD700' : '#1F5D35' }]}>Tentativa 1 de 3</Text>
+                <Text style={[styles.livePillText, { color: isDarkMode ? '#FFD700' : '#1F5D35' }]}>
+                  Tentativa {attemptNumber} de {MAX_ATTEMPTS}
+                </Text>
               </View>
             </View>
 
             <View style={[styles.questionPanel, { borderColor: palette.panelBorder }]}>
-              <Text style={[styles.questionLabel, { color: palette.muted }]}>Pergunta</Text>
+              <Text style={[styles.questionLabel, { color: palette.muted }]}>
+                {currentQuestion.sectionTitle} | {questionIndex + 1} de {questions.length}
+              </Text>
               <Text style={[styles.questionText, { color: palette.text }]}>{currentQuestion.question}</Text>
             </View>
 
             <View style={styles.triesRow}>
-              <Text style={[styles.triesText, { color: palette.muted }]}>Tempo restante</Text>
+              <Text style={[styles.triesText, { color: palette.muted }]}>Codigo: {currentQuestion.code}</Text>
               <Text style={[styles.timerText, { color: isUrgent ? '#EA4235' : palette.text }]}>{formatTime(timeLeft)}</Text>
             </View>
 
@@ -191,7 +304,7 @@ export default function GameScreen() {
                       isSelected && styles.optionButtonSelected,
                     ]}
                     accessibilityRole="button"
-                    accessibilityLabel={`Alternativa ${option.id}: ${option.text}`}
+                    accessibilityLabel={`Alternativa ${option.id}, ${option.colorName}: ${option.text}`}
                     accessibilityHint="Toque para escolher esta alternativa"
                     accessibilityState={{ selected: isSelected }}>
                     <Text style={styles.optionLabel}>{option.id}</Text>
@@ -239,7 +352,33 @@ export default function GameScreen() {
 
             {gameStatus === 'answered' && !isCorrectAnswer && (
               <View style={[styles.feedbackBanner, { backgroundColor: '#DC2626' }]}>
-                <Text style={styles.feedbackText}>Resposta incorreta!</Text>
+                <Text style={styles.feedbackText}>
+                  {attemptsUsed < MAX_ATTEMPTS ? 'Resposta incorreta. Tente novamente!' : `Resposta: ${currentQuestion.answer}`}
+                </Text>
+              </View>
+            )}
+
+            {(gameStatus === 'answered' || gameStatus === 'timeout') && (
+              <Pressable
+                onPress={handleContinue}
+                style={styles.primaryAction}
+                accessibilityRole="button"
+                accessibilityLabel={isCorrectAnswer || attemptsUsed >= MAX_ATTEMPTS || gameStatus === 'timeout' ? 'Proxima pergunta' : 'Tentar novamente'}>
+                <Text style={styles.primaryActionText}>
+                  {isCorrectAnswer || attemptsUsed >= MAX_ATTEMPTS || gameStatus === 'timeout'
+                    ? hasMoreQuestions
+                      ? 'Proxima pergunta'
+                      : 'Ver resultado'
+                    : 'Tentar novamente'}
+                </Text>
+              </Pressable>
+            )}
+
+            {gameStatus === 'finished' && (
+              <View style={[styles.feedbackBanner, { backgroundColor: '#16A34A' }]}>
+                <Text style={styles.feedbackText}>
+                  Fim de jogo! Pontuacao: {score} de {questions.length}
+                </Text>
               </View>
             )}
           </View>
