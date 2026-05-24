@@ -21,6 +21,13 @@ if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental
 
 const MAX_ATTEMPTS = 3;
 const QUESTION_TIME_SECONDS = 30;
+const PROGRESS_STORAGE_KEY = 'penseBemProgress';
+
+const DIFFICULTIES = [
+  { id: 'easy', label: 'Facil', seconds: 30 },
+  { id: 'medium', label: 'Medium', seconds: 15 },
+  { id: 'hard', label: 'Dificil', seconds: 10 },
+] as const;
 
 const OPTION_BY_COLOR = {
   vermelho: { id: 'A', color: '#EA4235' },
@@ -43,6 +50,7 @@ type RawQuestion = {
 type GameQuestion = {
   id: string;
   code: string;
+  setId: string;
   sectionTitle: string;
   sectionDescription: string;
   number: number;
@@ -57,11 +65,25 @@ type GameQuestion = {
   }[];
 };
 
+type GameStatus = 'playing' | 'answered' | 'timeout' | 'finished';
+type QuestionSetId = 'all' | string;
+type DifficultyId = (typeof DIFFICULTIES)[number]['id'];
+
+type SavedProgress = {
+  questionSetId: QuestionSetId;
+  difficultyId: DifficultyId;
+  questionIndex: number;
+  attemptsUsed: number;
+  score: number;
+  selectedOption: string | null;
+  gameStatus: GameStatus;
+};
+
 function buildQuestions(): GameQuestion[] {
   return gameData.programas.flatMap((programa) => {
     const code = programa.codigo_acesso.join(' ');
 
-    return programa.secoes.flatMap((secao) =>
+    return programa.secoes.flatMap((secao, sectionIndex) =>
       secao.questoes.map((rawQuestao) => {
         const questao = rawQuestao as RawQuestion;
 
@@ -78,6 +100,7 @@ function buildQuestions(): GameQuestion[] {
         return {
           id: `${programa.id}-${questao.numero}`,
           code,
+          setId: `${programa.id}-${sectionIndex}`,
           sectionTitle: secao.titulo,
           sectionDescription: secao.descricao,
           number: questao.numero,
@@ -92,6 +115,32 @@ function buildQuestions(): GameQuestion[] {
 }
 
 const questions = buildQuestions();
+
+const allQuestionsSet = { id: 'all', label: 'Jogar todos', questionCount: questions.length };
+
+const programSets = gameData.programas.map((programa) => {
+  const code = programa.codigo_acesso.join(' ');
+  const questionCount = programa.secoes.reduce((total, secao) => total + secao.questoes.length, 0);
+
+  return {
+    id: `program-${programa.id}`,
+    code,
+    label: `Bloco ${code}`,
+    questionCount,
+  };
+});
+
+const sectionSets = gameData.programas.flatMap((programa) => {
+  const code = programa.codigo_acesso.join(' ');
+
+  return programa.secoes.map((secao, sectionIndex) => ({
+    id: `${programa.id}-${sectionIndex}`,
+    label: `${code} - ${secao.titulo}`,
+    questionCount: secao.questoes.length,
+  }));
+});
+
+const questionSets = [allQuestionsSet, ...programSets, ...sectionSets];
 
 type Palette = {
   page: string;
@@ -139,27 +188,85 @@ function calculatePointsForAnswer(isCorrect: boolean, attemptNumber: number): nu
   return Math.max(MAX_ATTEMPTS - attemptNumber + 1, 0);
 }
 
+function getStoredProgress(): SavedProgress | null {
+  if (typeof localStorage === 'undefined') return null;
+
+  const rawProgress = localStorage.getItem(PROGRESS_STORAGE_KEY);
+  if (!rawProgress) return null;
+
+  try {
+    const progress = JSON.parse(rawProgress) as SavedProgress;
+    const selectedSet = questionSets.find((set) => set.id === progress.questionSetId);
+    const selectedDifficulty = DIFFICULTIES.find((difficulty) => difficulty.id === progress.difficultyId);
+    const questionCount = selectedSet?.questionCount ?? 0;
+
+    if (
+      !selectedSet ||
+      !selectedDifficulty ||
+      typeof progress.questionIndex !== 'number' ||
+      progress.questionIndex < 0 ||
+      progress.questionIndex >= questionCount ||
+      !['playing', 'answered', 'timeout', 'finished'].includes(progress.gameStatus)
+    ) {
+      return null;
+    }
+
+    return progress;
+  } catch {
+    return null;
+  }
+}
+
+function saveStoredProgress(progress: SavedProgress) {
+  if (typeof localStorage === 'undefined') return;
+
+  localStorage.setItem(PROGRESS_STORAGE_KEY, JSON.stringify(progress));
+}
+
+function clearStoredProgress() {
+  if (typeof localStorage === 'undefined') return;
+
+  localStorage.removeItem(PROGRESS_STORAGE_KEY);
+}
+
 export default function GameScreen() {
   const [isDarkMode, setIsDarkMode] = useState(true);
+  const [screen, setScreen] = useState<'menu' | 'game'>('menu');
+  const [selectedQuestionSetId, setSelectedQuestionSetId] = useState<QuestionSetId>('all');
+  const [selectedDifficultyId, setSelectedDifficultyId] = useState<DifficultyId>('easy');
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [timeLeft, setTimeLeft] = useState(QUESTION_TIME_SECONDS);
-  const [gameStatus, setGameStatus] = useState<'playing' | 'answered' | 'timeout' | 'finished'>('playing');
+  const [gameStatus, setGameStatus] = useState<GameStatus>('playing');
   const [questionIndex, setQuestionIndex] = useState(0);
   const [attemptsUsed, setAttemptsUsed] = useState(0);
   const [score, setScore] = useState(0);
+  const [savedProgress, setSavedProgress] = useState<SavedProgress | null>(() => getStoredProgress());
   const { width } = useWindowDimensions();
   const isWide = width >= 900;
   const isSmall = width < 360;
   const palette = getPalette(isDarkMode);
+  const selectedDifficulty = DIFFICULTIES.find((difficulty) => difficulty.id === selectedDifficultyId) ?? DIFFICULTIES[0];
+  const selectedQuestionSet = questionSets.find((set) => set.id === selectedQuestionSetId) ?? questionSets[0];
+  const savedQuestionSet = savedProgress
+    ? questionSets.find((set) => set.id === savedProgress.questionSetId)
+    : null;
+  const activeQuestions =
+    selectedQuestionSetId === 'all'
+      ? questions
+      : selectedQuestionSetId.startsWith('program-')
+        ? questions.filter((question) => question.id.startsWith(`${selectedQuestionSetId.replace('program-', '')}-`))
+      : questions.filter((question) => question.setId === selectedQuestionSetId);
   const isUrgent = timeLeft <= 10;
-  const currentQuestion = questions[questionIndex];
+  const currentQuestion = activeQuestions[questionIndex] ?? activeQuestions[0];
   const isCorrectAnswer = gameStatus === 'answered' && selectedOption === currentQuestion.correctAnswer;
-  const hasMoreQuestions = questionIndex < questions.length - 1;
+  const hasMoreQuestions = questionIndex < activeQuestions.length - 1;
   const attemptsRemaining = Math.max(MAX_ATTEMPTS - attemptsUsed, 0);
   const isAnswerLocked = gameStatus !== 'playing' || attemptsRemaining === 0;
-  const maxScore = questions.length * MAX_ATTEMPTS;
+  const maxScore = activeQuestions.length * MAX_ATTEMPTS;
+  const progressText = `${questionIndex + 1}/${activeQuestions.length}`;
 
   useEffect(() => {
+    if (screen !== 'game') return;
     if (gameStatus !== 'playing') return;
 
     const interval = setInterval(() => {
@@ -173,11 +280,21 @@ export default function GameScreen() {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [gameStatus]);
+  }, [gameStatus, screen]);
 
   function toggleDarkMode() {
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     setIsDarkMode((current) => !current);
+  }
+
+  function handleSelectQuestionSet(id: QuestionSetId) {
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+    setSelectedQuestionSetId(id);
+  }
+
+  function handleSelectDifficulty(id: DifficultyId) {
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+    setSelectedDifficultyId(id);
   }
 
   function handleSelectOption(id: string) {
@@ -199,14 +316,72 @@ export default function GameScreen() {
     setGameStatus('answered');
   }
 
-  function handleRestart() {
-    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+  function createProgressSnapshot(overrides: Partial<SavedProgress> = {}): SavedProgress {
+    return {
+      questionSetId: selectedQuestionSetId,
+      difficultyId: selectedDifficultyId,
+      questionIndex,
+      attemptsUsed,
+      score,
+      selectedOption,
+      gameStatus,
+      ...overrides,
+    };
+  }
+
+  function resetGameState() {
     setSelectedOption(null);
-    setTimeLeft(QUESTION_TIME_SECONDS);
+    setTimeLeft(selectedDifficulty.seconds);
     setAttemptsUsed(0);
     setScore(0);
     setQuestionIndex(0);
     setGameStatus('playing');
+  }
+
+  function handleStartNewGame() {
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+    clearStoredProgress();
+    setSavedProgress(null);
+    resetGameState();
+    setScreen('game');
+  }
+
+  function handleResumeGame() {
+    const progress = savedProgress ?? getStoredProgress();
+
+    if (!progress) {
+      handleStartNewGame();
+      return;
+    }
+
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+    setQuestionIndex(progress.questionIndex);
+    setSelectedQuestionSetId(progress.questionSetId);
+    setSelectedDifficultyId(progress.difficultyId);
+    setAttemptsUsed(progress.attemptsUsed);
+    setScore(progress.score);
+    setSelectedOption(progress.selectedOption);
+    setGameStatus(progress.gameStatus);
+    const progressDifficulty = DIFFICULTIES.find((difficulty) => difficulty.id === progress.difficultyId) ?? DIFFICULTIES[0];
+
+    setTimeLeft(progressDifficulty.seconds);
+    setScreen('game');
+  }
+
+  function handleBackToMenu() {
+    const progress = createProgressSnapshot();
+
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+    saveStoredProgress(progress);
+    setSavedProgress(progress);
+    setScreen('menu');
+  }
+
+  function handleRestart() {
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+    clearStoredProgress();
+    setSavedProgress(null);
+    resetGameState();
   }
 
   function handleContinue() {
@@ -219,14 +394,28 @@ export default function GameScreen() {
     }
 
     if (hasMoreQuestions) {
-      setQuestionIndex((current) => current + 1);
+      const nextQuestionIndex = questionIndex + 1;
+      const nextProgress = createProgressSnapshot({
+        questionIndex: nextQuestionIndex,
+        attemptsUsed: 0,
+        selectedOption: null,
+        gameStatus: 'playing',
+      });
+
+      saveStoredProgress(nextProgress);
+      setSavedProgress(nextProgress);
+      setQuestionIndex(nextQuestionIndex);
       setSelectedOption(null);
       setAttemptsUsed(0);
-      setTimeLeft(QUESTION_TIME_SECONDS);
+      setTimeLeft(selectedDifficulty.seconds);
       setGameStatus('playing');
       return;
     }
 
+    const finishedProgress = createProgressSnapshot({ gameStatus: 'finished' });
+
+    saveStoredProgress(finishedProgress);
+    setSavedProgress(finishedProgress);
     setGameStatus('finished');
   }
 
@@ -274,11 +463,157 @@ export default function GameScreen() {
             </Pressable>
           </View>
 
-          <View style={[styles.gameCard, { backgroundColor: palette.panel, borderColor: palette.panelBorder }]}>
+          {screen === 'menu' && (
+            <View style={[styles.gameCard, { backgroundColor: palette.panel, borderColor: palette.panelBorder }]}>
+              <View style={styles.menuHeader}>
+                <Text style={[styles.menuTitle, { color: isDarkMode ? '#FFD700' : palette.text }]}>Menu</Text>
+                <Text style={[styles.menuText, { color: palette.muted }]}>
+                  {savedProgress
+                    ? `Progresso salvo: ${savedProgress.questionIndex + 1}/${savedQuestionSet?.questionCount ?? questions.length} | Pontos: ${savedProgress.score}/${(savedQuestionSet?.questionCount ?? questions.length) * MAX_ATTEMPTS}`
+                    : `Selecionado: ${selectedQuestionSet.label} | ${selectedQuestionSet.questionCount} perguntas`}
+                </Text>
+              </View>
+
+              <View style={styles.menuSection}>
+                <Text style={[styles.menuSectionTitle, { color: palette.text }]}>Blocos do programa</Text>
+                <View style={styles.selectionGrid}>
+                  {[allQuestionsSet, ...programSets].map((questionSet) => {
+                    const isSelected = selectedQuestionSetId === questionSet.id;
+
+                    return (
+                      <Pressable
+                        key={questionSet.id}
+                        onPress={() => handleSelectQuestionSet(questionSet.id)}
+                        style={[
+                          styles.selectionButton,
+                          { borderColor: palette.panelBorder },
+                          isSelected && styles.selectionButtonActive,
+                        ]}
+                        accessibilityRole="button"
+                        accessibilityLabel={`Selecionar ${questionSet.label}`}>
+                        <Text
+                          style={[
+                            styles.selectionButtonText,
+                            { color: isSelected ? '#14162E' : palette.text },
+                          ]}>
+                          {questionSet.label}
+                        </Text>
+                        <Text
+                          style={[
+                            styles.selectionButtonMeta,
+                            { color: isSelected ? '#14162E' : palette.muted },
+                          ]}>
+                          {questionSet.questionCount} perguntas
+                        </Text>
+                      </Pressable>
+                    );
+                  })}
+                </View>
+              </View>
+
+              <View style={styles.menuSection}>
+                <Text style={[styles.menuSectionTitle, { color: palette.text }]}>Partes especificas</Text>
+                <View style={styles.selectionGrid}>
+                  {sectionSets.map((questionSet) => {
+                    const isSelected = selectedQuestionSetId === questionSet.id;
+
+                    return (
+                      <Pressable
+                        key={questionSet.id}
+                        onPress={() => handleSelectQuestionSet(questionSet.id)}
+                        style={[
+                          styles.selectionButton,
+                          { borderColor: palette.panelBorder },
+                          isSelected && styles.selectionButtonActive,
+                        ]}
+                        accessibilityRole="button"
+                        accessibilityLabel={`Selecionar ${questionSet.label}`}>
+                        <Text
+                          style={[
+                            styles.selectionButtonText,
+                            { color: isSelected ? '#14162E' : palette.text },
+                          ]}>
+                          {questionSet.label}
+                        </Text>
+                        <Text
+                          style={[
+                            styles.selectionButtonMeta,
+                            { color: isSelected ? '#14162E' : palette.muted },
+                          ]}>
+                          {questionSet.questionCount} perguntas
+                        </Text>
+                      </Pressable>
+                    );
+                  })}
+                </View>
+              </View>
+
+              <View style={styles.menuSection}>
+                <Text style={[styles.menuSectionTitle, { color: palette.text }]}>Dificuldade</Text>
+                <View style={styles.difficultyRow}>
+                  {DIFFICULTIES.map((difficulty) => {
+                    const isSelected = selectedDifficultyId === difficulty.id;
+
+                    return (
+                      <Pressable
+                        key={difficulty.id}
+                        onPress={() => handleSelectDifficulty(difficulty.id)}
+                        style={[
+                          styles.difficultyButton,
+                          { borderColor: palette.panelBorder },
+                          isSelected && styles.selectionButtonActive,
+                        ]}
+                        accessibilityRole="button"
+                        accessibilityLabel={`Selecionar dificuldade ${difficulty.label}`}>
+                        <Text
+                          style={[
+                            styles.selectionButtonText,
+                            { color: isSelected ? '#14162E' : palette.text },
+                          ]}>
+                          {difficulty.label}
+                        </Text>
+                        <Text
+                          style={[
+                            styles.selectionButtonMeta,
+                            { color: isSelected ? '#14162E' : palette.muted },
+                          ]}>
+                          {difficulty.seconds}s
+                        </Text>
+                      </Pressable>
+                    );
+                  })}
+                </View>
+              </View>
+
+              {savedProgress && (
+                <Pressable
+                  onPress={handleResumeGame}
+                  style={[styles.primaryAction, styles.fullWidthAction]}
+                  accessibilityRole="button"
+                  accessibilityLabel="Continuar jogo salvo">
+                  <Text style={styles.primaryActionText}>Continuar jogo</Text>
+                </Pressable>
+              )}
+
+              <Pressable
+                onPress={handleStartNewGame}
+                style={[styles.secondaryAction, styles.fullWidthAction, { borderColor: palette.panelBorder }]}
+                accessibilityRole="button"
+                accessibilityLabel="Iniciar novo jogo">
+                <Text style={[styles.secondaryActionText, { color: palette.text }]}>Novo jogo</Text>
+              </Pressable>
+            </View>
+          )}
+
+          {screen === 'game' && (
+            <View style={[styles.gameCard, { backgroundColor: palette.panel, borderColor: palette.panelBorder }]}>
             <View style={[styles.roundHeader, { borderBottomColor: palette.panelBorder }]}>
-              <Text style={[styles.roundCode, { color: isDarkMode ? '#FFD700' : palette.text }]}>
-                {String(currentQuestion.number).padStart(3, '0')}
-              </Text>
+              <View>
+                <Text style={[styles.roundCode, { color: isDarkMode ? '#FFD700' : palette.text }]}>
+                  {String(currentQuestion.number).padStart(3, '0')}
+                </Text>
+                <Text style={[styles.progressText, { color: palette.muted }]}>Progresso {progressText}</Text>
+              </View>
               <View style={[styles.livePill, { backgroundColor: palette.badge }]}>
                 <Text style={[styles.livePillText, { color: isDarkMode ? '#FFD700' : '#1F5D35' }]}>
                   {attemptsRemaining === 1 ? 'Resta 1 tentativa' : `Restam ${attemptsRemaining} tentativas`}
@@ -288,7 +623,7 @@ export default function GameScreen() {
 
             <View style={[styles.questionPanel, { borderColor: palette.panelBorder }]}>
               <Text style={[styles.questionLabel, { color: palette.muted }]}>
-                {currentQuestion.sectionTitle} | {questionIndex + 1} de {questions.length}
+                {currentQuestion.sectionTitle}
               </Text>
               <Text style={[styles.questionText, { color: palette.text }]}>{currentQuestion.question}</Text>
             </View>
@@ -353,6 +688,14 @@ export default function GameScreen() {
               </Pressable>
             </View>
 
+            <Pressable
+              onPress={handleBackToMenu}
+              style={[styles.secondaryAction, styles.fullWidthAction, { borderColor: palette.panelBorder }]}
+              accessibilityRole="button"
+              accessibilityLabel="Voltar ao menu">
+              <Text style={[styles.secondaryActionText, { color: palette.text }]}>Voltar ao Menu</Text>
+            </Pressable>
+
             {gameStatus === 'timeout' && (
               <View style={[styles.feedbackBanner, { backgroundColor: '#DC2626' }]}>
                 <Text style={styles.feedbackText}>Tempo esgotado!</Text>
@@ -376,7 +719,7 @@ export default function GameScreen() {
             {(gameStatus === 'answered' || gameStatus === 'timeout') && (
               <Pressable
                 onPress={handleContinue}
-                style={styles.primaryAction}
+                style={[styles.primaryAction, styles.fullWidthAction]}
                 accessibilityRole="button"
                 accessibilityLabel={isCorrectAnswer || attemptsRemaining === 0 || gameStatus === 'timeout' ? 'Proxima pergunta' : 'Tentar novamente'}>
                 <Text style={styles.primaryActionText}>
@@ -396,7 +739,8 @@ export default function GameScreen() {
                 </Text>
               </View>
             )}
-          </View>
+            </View>
+          )}
         </ScrollView>
       </SafeAreaView>
     </View>
