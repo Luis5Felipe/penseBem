@@ -133,6 +133,12 @@ function formatTime(seconds: number): string {
   return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
 }
 
+function calculatePointsForAnswer(isCorrect: boolean, attemptNumber: number): number {
+  if (!isCorrect) return 0;
+
+  return Math.max(MAX_ATTEMPTS - attemptNumber + 1, 0);
+}
+
 export default function GameScreen() {
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
@@ -151,6 +157,7 @@ export default function GameScreen() {
   const hasMoreQuestions = questionIndex < questions.length - 1;
   const attemptsRemaining = Math.max(MAX_ATTEMPTS - attemptsUsed, 0);
   const isAnswerLocked = gameStatus !== 'playing' || attemptsRemaining === 0;
+  const maxScore = questions.length * MAX_ATTEMPTS;
 
   useEffect(() => {
     if (gameStatus !== 'playing') return;
@@ -183,12 +190,11 @@ export default function GameScreen() {
     if (!selectedOption || isAnswerLocked) return;
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     const nextAttemptsUsed = attemptsUsed + 1;
+    const isCorrect = selectedOption === currentQuestion.correctAnswer;
 
     setAttemptsUsed(nextAttemptsUsed);
 
-    if (selectedOption === currentQuestion.correctAnswer) {
-      setScore((current) => current + 1);
-    }
+    setScore((current) => current + calculatePointsForAnswer(isCorrect, nextAttemptsUsed));
 
     setGameStatus('answered');
   }
@@ -289,6 +295,9 @@ export default function GameScreen() {
 
             <View style={styles.triesRow}>
               <Text style={[styles.triesText, { color: palette.muted }]}>Codigo: {currentQuestion.code}</Text>
+              <Text style={[styles.triesText, { color: isDarkMode ? '#FFD700' : palette.text }]}>
+                Pontos: {score}/{maxScore}
+              </Text>
               <Text style={[styles.timerText, { color: isUrgent ? '#EA4235' : palette.text }]}>{formatTime(timeLeft)}</Text>
             </View>
 
@@ -383,7 +392,7 @@ export default function GameScreen() {
             {gameStatus === 'finished' && (
               <View style={[styles.feedbackBanner, { backgroundColor: '#16A34A' }]}>
                 <Text style={styles.feedbackText}>
-                  Fim de jogo! Pontuacao: {score} de {questions.length}
+                  Fim de jogo! Pontuacao: {score} de {maxScore}
                 </Text>
               </View>
             )}
