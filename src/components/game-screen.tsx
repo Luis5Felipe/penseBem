@@ -4,13 +4,13 @@ import {
   Platform,
   Pressable,
   ScrollView,
+  SafeAreaView,
   StatusBar,
   Text,
   View,
   UIManager,
   useWindowDimensions,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
 import gameData from '../json_com_perguntas/pense_bem_sonic_tails.json';
 import { styles } from './game-styles';
