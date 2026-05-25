@@ -11,31 +11,32 @@ export const styles = StyleSheet.create({
     width: '100%',
     maxWidth: 760,
     alignSelf: 'center',
-    paddingHorizontal: 16,
+    paddingHorizontal: 12,
     paddingBottom: 32,
-    paddingTop: 16,
-    gap: 14,
+    paddingTop: 12,
+    gap: 12,
   },
   scrollContentWide: {
     maxWidth: 960,
     paddingHorizontal: 32,
   },
   scrollContentSmall: {
-    paddingHorizontal: 10,
+    paddingHorizontal: 8,
     gap: 10,
   },
   brandContainer: {
-    borderRadius: 14,
+    borderRadius: 10,
     borderWidth: 1,
-    paddingHorizontal: 16,
-    paddingVertical: 14,
+    paddingHorizontal: 12,
+    paddingVertical: 12,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    gap: 10,
   },
   brandTitle: {
-    fontSize: 26,
-    lineHeight: 30,
+    fontSize: 22,
+    lineHeight: 26,
     fontWeight: '800',
   },
   brandSubtitle: {
@@ -77,10 +78,10 @@ export const styles = StyleSheet.create({
     backgroundColor: '#FFD700',
   },
   gameCard: {
-    borderRadius: 16,
+    borderRadius: 10,
     borderWidth: 1,
-    padding: 16,
-    gap: 14,
+    padding: 12,
+    gap: 12,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.3,
@@ -93,10 +94,17 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     borderBottomWidth: 1,
     paddingBottom: 14,
+    gap: 10,
+  },
+  roundHeaderResponsive: {
+    flexWrap: 'wrap',
+  },
+  roundTitleGroup: {
+    flexGrow: 1,
+    flexShrink: 1,
   },
   roundCode: {
-    fontSize: 28,
-    letterSpacing: 0.5,
+    fontSize: 26,
     fontWeight: '800',
   },
   progressText: {
@@ -127,24 +135,26 @@ export const styles = StyleSheet.create({
     textTransform: 'uppercase',
   },
   questionText: {
-    fontSize: 22,
-    lineHeight: 30,
+    fontSize: 19,
+    lineHeight: 26,
     fontWeight: '700',
   },
   triesRow: {
     flexDirection: 'row',
+    flexWrap: 'wrap',
     alignItems: 'center',
     justifyContent: 'space-between',
     borderRadius: 10,
     paddingHorizontal: 4,
     paddingVertical: 4,
+    gap: 8,
   },
   triesText: {
-    fontSize: 14,
+    fontSize: 13,
     fontWeight: '600',
   },
   timerText: {
-    fontSize: 22,
+    fontSize: 20,
     fontWeight: '800',
   },
   optionsGrid: {
@@ -157,8 +167,8 @@ export const styles = StyleSheet.create({
     gap: 12,
   },
   optionButton: {
-    width: '48.8%',
-    aspectRatio: 1.15,
+    width: '48%',
+    minHeight: 118,
     borderRadius: 12,
     borderWidth: 2,
     borderColor: 'transparent',
@@ -166,10 +176,11 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   optionButtonWide: {
-    aspectRatio: 1.25,
+    minHeight: 160,
   },
   optionButtonSmall: {
-    aspectRatio: 1,
+    width: '100%',
+    minHeight: 96,
   },
   optionButtonSelected: {
     borderColor: '#FFFFFF',
@@ -201,6 +212,12 @@ export const styles = StyleSheet.create({
   actionRow: {
     flexDirection: 'row',
     gap: 8,
+  },
+  actionRowResponsive: {
+    flexWrap: 'wrap',
+  },
+  actionRowPhone: {
+    flexDirection: 'column',
   },
   actionRowWide: {
     gap: 12,
@@ -246,8 +263,8 @@ export const styles = StyleSheet.create({
     gap: 6,
   },
   menuTitle: {
-    fontSize: 24,
-    lineHeight: 30,
+    fontSize: 22,
+    lineHeight: 28,
     fontWeight: '800',
   },
   menuText: {
@@ -268,13 +285,19 @@ export const styles = StyleSheet.create({
     gap: 8,
   },
   selectionButton: {
-    width: '48.8%',
+    flexGrow: 1,
+    flexShrink: 1,
+    flexBasis: 160,
     minHeight: 58,
     borderRadius: 10,
     borderWidth: 1,
     paddingHorizontal: 10,
     paddingVertical: 9,
     justifyContent: 'center',
+  },
+  selectionButtonPhone: {
+    flexBasis: '100%',
+    width: '100%',
   },
   selectionButtonActive: {
     backgroundColor: '#FFD700',
@@ -293,10 +316,12 @@ export const styles = StyleSheet.create({
   },
   difficultyRow: {
     flexDirection: 'row',
+    flexWrap: 'wrap',
     gap: 8,
   },
   difficultyButton: {
     flex: 1,
+    flexBasis: 96,
     minHeight: 58,
     borderRadius: 10,
     borderWidth: 1,
@@ -304,6 +329,59 @@ export const styles = StyleSheet.create({
     paddingVertical: 9,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  difficultyButtonPhone: {
+    flexBasis: '100%',
+    width: '100%',
+  },
+  dropdownButton: {
+    minHeight: 58,
+    borderRadius: 10,
+    borderWidth: 1,
+    paddingHorizontal: 12,
+    paddingVertical: 9,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: 10,
+  },
+  dropdownTextGroup: {
+    flex: 1,
+  },
+  dropdownChevron: {
+    width: 24,
+    textAlign: 'right',
+    fontSize: 14,
+    fontWeight: '800',
+  },
+  dropdownMenu: {
+    maxHeight: 260,
+    borderRadius: 10,
+    borderWidth: 1,
+    overflow: 'hidden',
+  },
+  dropdownScroll: {
+    maxHeight: 260,
+  },
+  dropdownItem: {
+    minHeight: 54,
+    borderBottomWidth: 1,
+    paddingHorizontal: 12,
+    paddingVertical: 9,
+    justifyContent: 'center',
+  },
+  resultPanel: {
+    borderWidth: 1,
+    borderRadius: 10,
+    paddingHorizontal: 14,
+    paddingVertical: 18,
+    alignItems: 'center',
+    gap: 8,
+  },
+  resultScore: {
+    fontSize: 42,
+    lineHeight: 48,
+    fontWeight: '800',
   },
   feedbackBanner: {
     borderRadius: 10,
