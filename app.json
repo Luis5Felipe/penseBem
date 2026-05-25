@@ -2,12 +2,17 @@
   "expo": {
     "name": "PenseBem",
     "slug": "pensebem-2wjfe0lpvfuaohvxfuyg",
-    "sdkVersion": "51.0.0",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "pensebem",
     "userInterfaceStyle": "automatic",
+    "plugins": [
+      "expo-router"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
     "ios": {
       "icon": "./assets/images/icon.png"
     },

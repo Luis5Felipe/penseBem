@@ -189,9 +189,9 @@ function calculatePointsForAnswer(isCorrect: boolean, attemptNumber: number): nu
 }
 
 function getStoredProgress(): SavedProgress | null {
-  if (typeof localStorage === 'undefined') return null;
+  if (Platform.OS !== 'web' || typeof globalThis.localStorage === 'undefined') return null;
 
-  const rawProgress = localStorage.getItem(PROGRESS_STORAGE_KEY);
+  const rawProgress = globalThis.localStorage.getItem(PROGRESS_STORAGE_KEY);
   if (!rawProgress) return null;
 
   try {
@@ -218,15 +218,15 @@ function getStoredProgress(): SavedProgress | null {
 }
 
 function saveStoredProgress(progress: SavedProgress) {
-  if (typeof localStorage === 'undefined') return;
+  if (Platform.OS !== 'web' || typeof globalThis.localStorage === 'undefined') return;
 
-  localStorage.setItem(PROGRESS_STORAGE_KEY, JSON.stringify(progress));
+  globalThis.localStorage.setItem(PROGRESS_STORAGE_KEY, JSON.stringify(progress));
 }
 
 function clearStoredProgress() {
-  if (typeof localStorage === 'undefined') return;
+  if (Platform.OS !== 'web' || typeof globalThis.localStorage === 'undefined') return;
 
-  localStorage.removeItem(PROGRESS_STORAGE_KEY);
+  globalThis.localStorage.removeItem(PROGRESS_STORAGE_KEY);
 }
 
 export default function GameScreen() {
