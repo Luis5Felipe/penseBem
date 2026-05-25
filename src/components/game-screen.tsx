@@ -4,16 +4,16 @@ import {
   Platform,
   Pressable,
   ScrollView,
+  SafeAreaView,
   StatusBar,
   Text,
   View,
   UIManager,
   useWindowDimensions,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { styles } from '@/components/game-styles';
-import gameData from '@/json_com_perguntas/pense_bem_sonic_tails.json';
+import gameData from '../json_com_perguntas/pense_bem_sonic_tails.json';
+import { styles } from './game-styles';
 
 if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental) {
   UIManager.setLayoutAnimationEnabledExperimental(true);
@@ -189,9 +189,9 @@ function calculatePointsForAnswer(isCorrect: boolean, attemptNumber: number): nu
 }
 
 function getStoredProgress(): SavedProgress | null {
-  if (typeof localStorage === 'undefined') return null;
+  if (Platform.OS !== 'web' || typeof globalThis.localStorage === 'undefined') return null;
 
-  const rawProgress = localStorage.getItem(PROGRESS_STORAGE_KEY);
+  const rawProgress = globalThis.localStorage.getItem(PROGRESS_STORAGE_KEY);
   if (!rawProgress) return null;
 
   try {
@@ -218,20 +218,21 @@ function getStoredProgress(): SavedProgress | null {
 }
 
 function saveStoredProgress(progress: SavedProgress) {
-  if (typeof localStorage === 'undefined') return;
+  if (Platform.OS !== 'web' || typeof globalThis.localStorage === 'undefined') return;
 
-  localStorage.setItem(PROGRESS_STORAGE_KEY, JSON.stringify(progress));
+  globalThis.localStorage.setItem(PROGRESS_STORAGE_KEY, JSON.stringify(progress));
 }
 
 function clearStoredProgress() {
-  if (typeof localStorage === 'undefined') return;
+  if (Platform.OS !== 'web' || typeof globalThis.localStorage === 'undefined') return;
 
-  localStorage.removeItem(PROGRESS_STORAGE_KEY);
+  globalThis.localStorage.removeItem(PROGRESS_STORAGE_KEY);
 }
 
 export default function GameScreen() {
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [screen, setScreen] = useState<'menu' | 'game'>('menu');
+  const [isSectionDropdownOpen, setIsSectionDropdownOpen] = useState(false);
   const [selectedQuestionSetId, setSelectedQuestionSetId] = useState<QuestionSetId>('all');
   const [selectedDifficultyId, setSelectedDifficultyId] = useState<DifficultyId>('easy');
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
@@ -243,6 +244,7 @@ export default function GameScreen() {
   const [savedProgress, setSavedProgress] = useState<SavedProgress | null>(() => getStoredProgress());
   const { width } = useWindowDimensions();
   const isWide = width >= 900;
+  const isPhone = width < 700;
   const isSmall = width < 360;
   const palette = getPalette(isDarkMode);
   const selectedDifficulty = DIFFICULTIES.find((difficulty) => difficulty.id === selectedDifficultyId) ?? DIFFICULTIES[0];
@@ -264,6 +266,7 @@ export default function GameScreen() {
   const isAnswerLocked = gameStatus !== 'playing' || attemptsRemaining === 0;
   const maxScore = activeQuestions.length * MAX_ATTEMPTS;
   const progressText = `${questionIndex + 1}/${activeQuestions.length}`;
+  const selectedSectionSet = sectionSets.find((set) => set.id === selectedQuestionSetId);
 
   useEffect(() => {
     if (screen !== 'game') return;
@@ -290,6 +293,7 @@ export default function GameScreen() {
   function handleSelectQuestionSet(id: QuestionSetId) {
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     setSelectedQuestionSetId(id);
+    setIsSectionDropdownOpen(false);
   }
 
   function handleSelectDifficulty(id: DifficultyId) {
@@ -486,6 +490,7 @@ export default function GameScreen() {
                         onPress={() => handleSelectQuestionSet(questionSet.id)}
                         style={[
                           styles.selectionButton,
+                          isPhone && styles.selectionButtonPhone,
                           { borderColor: palette.panelBorder },
                           isSelected && styles.selectionButtonActive,
                         ]}
@@ -513,39 +518,67 @@ export default function GameScreen() {
 
               <View style={styles.menuSection}>
                 <Text style={[styles.menuSectionTitle, { color: palette.text }]}>Partes especificas</Text>
-                <View style={styles.selectionGrid}>
-                  {sectionSets.map((questionSet) => {
-                    const isSelected = selectedQuestionSetId === questionSet.id;
+                <Pressable
+                  onPress={() => {
+                    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+                    setIsSectionDropdownOpen((current) => !current);
+                  }}
+                  style={[styles.dropdownButton, { borderColor: palette.panelBorder }]}
+                  accessibilityRole="button"
+                  accessibilityLabel="Abrir menu de partes especificas"
+                  accessibilityState={{ expanded: isSectionDropdownOpen }}>
+                  <View style={styles.dropdownTextGroup}>
+                    <Text style={[styles.selectionButtonText, { color: palette.text }]}>
+                      {selectedSectionSet?.label ?? 'Escolha uma parte especifica'}
+                    </Text>
+                    <Text style={[styles.selectionButtonMeta, { color: palette.muted }]}>
+                      {selectedSectionSet
+                        ? `${selectedSectionSet.questionCount} perguntas`
+                        : 'Toque para abrir a lista'}
+                    </Text>
+                  </View>
+                  <Text style={[styles.dropdownChevron, { color: isDarkMode ? '#FFD700' : palette.text }]}>
+                    {isSectionDropdownOpen ? '▲' : '▼'}
+                  </Text>
+                </Pressable>
 
-                    return (
-                      <Pressable
-                        key={questionSet.id}
-                        onPress={() => handleSelectQuestionSet(questionSet.id)}
-                        style={[
-                          styles.selectionButton,
-                          { borderColor: palette.panelBorder },
-                          isSelected && styles.selectionButtonActive,
-                        ]}
-                        accessibilityRole="button"
-                        accessibilityLabel={`Selecionar ${questionSet.label}`}>
-                        <Text
-                          style={[
-                            styles.selectionButtonText,
-                            { color: isSelected ? '#14162E' : palette.text },
-                          ]}>
-                          {questionSet.label}
-                        </Text>
-                        <Text
-                          style={[
-                            styles.selectionButtonMeta,
-                            { color: isSelected ? '#14162E' : palette.muted },
-                          ]}>
-                          {questionSet.questionCount} perguntas
-                        </Text>
-                      </Pressable>
-                    );
-                  })}
-                </View>
+                {isSectionDropdownOpen && (
+                  <View style={[styles.dropdownMenu, { borderColor: palette.panelBorder }]}>
+                    <ScrollView nestedScrollEnabled style={styles.dropdownScroll}>
+                      {sectionSets.map((questionSet) => {
+                        const isSelected = selectedQuestionSetId === questionSet.id;
+
+                        return (
+                          <Pressable
+                            key={questionSet.id}
+                            onPress={() => handleSelectQuestionSet(questionSet.id)}
+                            style={[
+                              styles.dropdownItem,
+                              { borderBottomColor: palette.panelBorder },
+                              isSelected && styles.selectionButtonActive,
+                            ]}
+                            accessibilityRole="button"
+                            accessibilityLabel={`Selecionar ${questionSet.label}`}>
+                            <Text
+                              style={[
+                                styles.selectionButtonText,
+                                { color: isSelected ? '#14162E' : palette.text },
+                              ]}>
+                              {questionSet.label}
+                            </Text>
+                            <Text
+                              style={[
+                                styles.selectionButtonMeta,
+                                { color: isSelected ? '#14162E' : palette.muted },
+                              ]}>
+                              {questionSet.questionCount} perguntas
+                            </Text>
+                          </Pressable>
+                        );
+                      })}
+                    </ScrollView>
+                  </View>
+                )}
               </View>
 
               <View style={styles.menuSection}>
@@ -560,6 +593,7 @@ export default function GameScreen() {
                         onPress={() => handleSelectDifficulty(difficulty.id)}
                         style={[
                           styles.difficultyButton,
+                          isPhone && styles.difficultyButtonPhone,
                           { borderColor: palette.panelBorder },
                           isSelected && styles.selectionButtonActive,
                         ]}
@@ -607,138 +641,166 @@ export default function GameScreen() {
 
           {screen === 'game' && (
             <View style={[styles.gameCard, { backgroundColor: palette.panel, borderColor: palette.panelBorder }]}>
-            <View style={[styles.roundHeader, { borderBottomColor: palette.panelBorder }]}>
-              <View>
-                <Text style={[styles.roundCode, { color: isDarkMode ? '#FFD700' : palette.text }]}>
-                  {String(currentQuestion.number).padStart(3, '0')}
-                </Text>
-                <Text style={[styles.progressText, { color: palette.muted }]}>Progresso {progressText}</Text>
-              </View>
-              <View style={[styles.livePill, { backgroundColor: palette.badge }]}>
-                <Text style={[styles.livePillText, { color: isDarkMode ? '#FFD700' : '#1F5D35' }]}>
-                  {attemptsRemaining === 1 ? 'Resta 1 tentativa' : `Restam ${attemptsRemaining} tentativas`}
-                </Text>
-              </View>
-            </View>
+              {gameStatus === 'finished' ? (
+                <>
+                  <View style={[styles.resultPanel, { borderColor: palette.panelBorder }]}>
+                    <Text style={[styles.menuTitle, { color: isDarkMode ? '#FFD700' : palette.text }]}>
+                      Resultado final
+                    </Text>
+                    <Text style={[styles.resultScore, { color: palette.text }]}>
+                      {score}/{maxScore}
+                    </Text>
+                    <Text style={[styles.menuText, { color: palette.muted }]}>
+                      Voce concluiu {activeQuestions.length} perguntas em {selectedQuestionSet.label}.
+                    </Text>
+                  </View>
 
-            <View style={[styles.questionPanel, { borderColor: palette.panelBorder }]}>
-              <Text style={[styles.questionLabel, { color: palette.muted }]}>
-                {currentQuestion.sectionTitle}
-              </Text>
-              <Text style={[styles.questionText, { color: palette.text }]}>{currentQuestion.question}</Text>
-            </View>
+                  <View style={[styles.actionRow, styles.actionRowResponsive, isPhone && styles.actionRowPhone, isWide && styles.actionRowWide]}>
+                    <Pressable
+                      onPress={handleRestart}
+                      style={[styles.primaryAction, { flex: 1 }]}
+                      accessibilityRole="button"
+                      accessibilityLabel="Reiniciar jogo">
+                      <Text style={styles.primaryActionText}>Reiniciar jogo</Text>
+                    </Pressable>
 
-            <View style={styles.triesRow}>
-              <Text style={[styles.triesText, { color: palette.muted }]}>Codigo: {currentQuestion.code}</Text>
-              <Text style={[styles.triesText, { color: isDarkMode ? '#FFD700' : palette.text }]}>
-                Pontos: {score}/{maxScore}
-              </Text>
-              <Text style={[styles.timerText, { color: isUrgent ? '#EA4235' : palette.text }]}>{formatTime(timeLeft)}</Text>
-            </View>
+                    <Pressable
+                      onPress={handleBackToMenu}
+                      style={[styles.secondaryAction, { borderColor: palette.panelBorder }]}
+                      accessibilityRole="button"
+                      accessibilityLabel="Voltar ao menu">
+                      <Text style={[styles.secondaryActionText, { color: palette.text }]}>Voltar ao Menu</Text>
+                    </Pressable>
+                  </View>
+                </>
+              ) : (
+                <>
+                  <View style={[styles.roundHeader, styles.roundHeaderResponsive, { borderBottomColor: palette.panelBorder }]}>
+                    <View style={styles.roundTitleGroup}>
+                      <Text style={[styles.roundCode, { color: isDarkMode ? '#FFD700' : palette.text }]}>
+                        {String(currentQuestion.number).padStart(3, '0')}
+                      </Text>
+                      <Text style={[styles.progressText, { color: palette.muted }]}>Progresso {progressText}</Text>
+                    </View>
+                    <View style={[styles.livePill, { backgroundColor: palette.badge }]}>
+                      <Text style={[styles.livePillText, { color: isDarkMode ? '#FFD700' : '#1F5D35' }]}>
+                        {attemptsRemaining === 1 ? 'Resta 1 tentativa' : `Restam ${attemptsRemaining} tentativas`}
+                      </Text>
+                    </View>
+                  </View>
 
-            <View style={[styles.optionsGrid, isWide && styles.optionsGridWide]}>
-              {currentQuestion.options.map((option) => {
-                const isSelected = selectedOption === option.id;
+                  <View style={[styles.questionPanel, { borderColor: palette.panelBorder }]}>
+                    <Text style={[styles.questionLabel, { color: palette.muted }]}>
+                      {currentQuestion.sectionTitle}
+                    </Text>
+                    <Text style={[styles.questionText, { color: palette.text }]}>{currentQuestion.question}</Text>
+                  </View>
 
-                return (
+                  <View style={styles.triesRow}>
+                    <Text style={[styles.triesText, { color: palette.muted }]}>Codigo: {currentQuestion.code}</Text>
+                    <Text style={[styles.triesText, { color: isDarkMode ? '#FFD700' : palette.text }]}>
+                      Pontos: {score}/{maxScore}
+                    </Text>
+                    <Text style={[styles.timerText, { color: isUrgent ? '#EA4235' : palette.text }]}>{formatTime(timeLeft)}</Text>
+                  </View>
+
+                  <View style={[styles.optionsGrid, isWide && styles.optionsGridWide]}>
+                    {currentQuestion.options.map((option) => {
+                      const isSelected = selectedOption === option.id;
+
+                      return (
+                        <Pressable
+                          key={option.id}
+                          onPress={() => handleSelectOption(option.id)}
+                          disabled={isAnswerLocked}
+                          style={[
+                            styles.optionButton,
+                            isWide && styles.optionButtonWide,
+                            isSmall && styles.optionButtonSmall,
+                            { backgroundColor: option.color },
+                            isSelected && styles.optionButtonSelected,
+                            isAnswerLocked && styles.optionButtonDisabled,
+                          ]}
+                          accessibilityRole="button"
+                          accessibilityLabel={`Alternativa ${option.id}, ${option.colorName}: ${option.text}`}
+                          accessibilityHint="Toque para escolher esta alternativa"
+                          accessibilityState={{ disabled: isAnswerLocked, selected: isSelected }}>
+                          <Text style={styles.optionLabel}>{option.id}</Text>
+                          <Text style={styles.optionText} numberOfLines={2}>{option.text}</Text>
+                        </Pressable>
+                      );
+                    })}
+                  </View>
+
+                  <View style={[styles.actionRow, styles.actionRowResponsive, isPhone && styles.actionRowPhone, isWide && styles.actionRowWide]}>
+                    <Pressable
+                      onPress={handleRestart}
+                      style={[styles.secondaryAction, { borderColor: palette.panelBorder }]}
+                      accessibilityRole="button"
+                      accessibilityLabel="Reiniciar jogo"
+                      accessibilityHint="Limpa o progresso da rodada atual">
+                      <Text style={[styles.secondaryActionText, { color: palette.text }]}>Reiniciar</Text>
+                    </Pressable>
+
+                    <Pressable
+                      onPress={handleConfirm}
+                      disabled={!selectedOption || isAnswerLocked}
+                      style={[
+                        styles.primaryAction,
+                        (!selectedOption || isAnswerLocked) && styles.primaryActionDisabled,
+                      ]}
+                      accessibilityRole="button"
+                      accessibilityLabel="Confirmar resposta"
+                      accessibilityHint="Confirma a alternativa selecionada">
+                      <Text style={styles.primaryActionText}>Confirmar resposta</Text>
+                    </Pressable>
+                  </View>
+
                   <Pressable
-                    key={option.id}
-                    onPress={() => handleSelectOption(option.id)}
-                    disabled={isAnswerLocked}
-                    style={[
-                      styles.optionButton,
-                      isWide && styles.optionButtonWide,
-                      isSmall && styles.optionButtonSmall,
-                      { backgroundColor: option.color },
-                      isSelected && styles.optionButtonSelected,
-                      isAnswerLocked && styles.optionButtonDisabled,
-                    ]}
+                    onPress={handleBackToMenu}
+                    style={[styles.secondaryAction, styles.fullWidthAction, { borderColor: palette.panelBorder }]}
                     accessibilityRole="button"
-                    accessibilityLabel={`Alternativa ${option.id}, ${option.colorName}: ${option.text}`}
-                    accessibilityHint="Toque para escolher esta alternativa"
-                    accessibilityState={{ disabled: isAnswerLocked, selected: isSelected }}>
-                    <Text style={styles.optionLabel}>{option.id}</Text>
-                    <Text style={styles.optionText} numberOfLines={2}>{option.text}</Text>
+                    accessibilityLabel="Voltar ao menu">
+                    <Text style={[styles.secondaryActionText, { color: palette.text }]}>Voltar ao Menu</Text>
                   </Pressable>
-                );
-              })}
-            </View>
 
-            <View style={[styles.actionRow, isWide && styles.actionRowWide]}>
-              <Pressable
-                onPress={handleRestart}
-                style={[styles.secondaryAction, { borderColor: palette.panelBorder }]}
-                accessibilityRole="button"
-                accessibilityLabel="Reiniciar jogo"
-                accessibilityHint="Limpa o progresso da rodada atual">
-                <Text style={[styles.secondaryActionText, { color: palette.text }]}>Reiniciar</Text>
-              </Pressable>
+                  {gameStatus === 'timeout' && (
+                    <View style={[styles.feedbackBanner, { backgroundColor: '#DC2626' }]}>
+                      <Text style={styles.feedbackText}>Tempo esgotado!</Text>
+                    </View>
+                  )}
 
-              <Pressable
-                onPress={handleConfirm}
-                disabled={!selectedOption || isAnswerLocked}
-                style={[
-                  styles.primaryAction,
-                  (!selectedOption || isAnswerLocked) && styles.primaryActionDisabled,
-                ]}
-                accessibilityRole="button"
-                accessibilityLabel="Confirmar resposta"
-                accessibilityHint="Confirma a alternativa selecionada">
-                <Text style={styles.primaryActionText}>Confirmar resposta</Text>
-              </Pressable>
-            </View>
+                  {gameStatus === 'answered' && isCorrectAnswer && (
+                    <View style={[styles.feedbackBanner, { backgroundColor: '#16A34A' }]}>
+                      <Text style={styles.feedbackText}>Resposta correta!</Text>
+                    </View>
+                  )}
 
-            <Pressable
-              onPress={handleBackToMenu}
-              style={[styles.secondaryAction, styles.fullWidthAction, { borderColor: palette.panelBorder }]}
-              accessibilityRole="button"
-              accessibilityLabel="Voltar ao menu">
-              <Text style={[styles.secondaryActionText, { color: palette.text }]}>Voltar ao Menu</Text>
-            </Pressable>
+                  {gameStatus === 'answered' && !isCorrectAnswer && (
+                    <View style={[styles.feedbackBanner, { backgroundColor: '#DC2626' }]}>
+                      <Text style={styles.feedbackText}>
+                        {attemptsRemaining > 0 ? 'Resposta incorreta. Tente novamente!' : `Resposta: ${currentQuestion.answer}`}
+                      </Text>
+                    </View>
+                  )}
 
-            {gameStatus === 'timeout' && (
-              <View style={[styles.feedbackBanner, { backgroundColor: '#DC2626' }]}>
-                <Text style={styles.feedbackText}>Tempo esgotado!</Text>
-              </View>
-            )}
-
-            {gameStatus === 'answered' && isCorrectAnswer && (
-              <View style={[styles.feedbackBanner, { backgroundColor: '#16A34A' }]}>
-                <Text style={styles.feedbackText}>Resposta correta!</Text>
-              </View>
-            )}
-
-            {gameStatus === 'answered' && !isCorrectAnswer && (
-              <View style={[styles.feedbackBanner, { backgroundColor: '#DC2626' }]}>
-                <Text style={styles.feedbackText}>
-                  {attemptsRemaining > 0 ? 'Resposta incorreta. Tente novamente!' : `Resposta: ${currentQuestion.answer}`}
-                </Text>
-              </View>
-            )}
-
-            {(gameStatus === 'answered' || gameStatus === 'timeout') && (
-              <Pressable
-                onPress={handleContinue}
-                style={[styles.primaryAction, styles.fullWidthAction]}
-                accessibilityRole="button"
-                accessibilityLabel={isCorrectAnswer || attemptsRemaining === 0 || gameStatus === 'timeout' ? 'Proxima pergunta' : 'Tentar novamente'}>
-                <Text style={styles.primaryActionText}>
-                  {isCorrectAnswer || attemptsRemaining === 0 || gameStatus === 'timeout'
-                    ? hasMoreQuestions
-                      ? 'Proxima pergunta'
-                      : 'Ver resultado'
-                    : 'Tentar novamente'}
-                </Text>
-              </Pressable>
-            )}
-
-            {gameStatus === 'finished' && (
-              <View style={[styles.feedbackBanner, { backgroundColor: '#16A34A' }]}>
-                <Text style={styles.feedbackText}>
-                  Fim de jogo! Pontuacao: {score} de {maxScore}
-                </Text>
-              </View>
-            )}
+                  {(gameStatus === 'answered' || gameStatus === 'timeout') && (
+                    <Pressable
+                      onPress={handleContinue}
+                      style={[styles.primaryAction, styles.fullWidthAction]}
+                      accessibilityRole="button"
+                      accessibilityLabel={isCorrectAnswer || attemptsRemaining === 0 || gameStatus === 'timeout' ? 'Proxima pergunta' : 'Tentar novamente'}>
+                      <Text style={styles.primaryActionText}>
+                        {isCorrectAnswer || attemptsRemaining === 0 || gameStatus === 'timeout'
+                          ? hasMoreQuestions
+                            ? 'Proxima pergunta'
+                            : 'Ver resultado'
+                          : 'Tentar novamente'}
+                      </Text>
+                    </Pressable>
+                  )}
+                </>
+              )}
             </View>
           )}
         </ScrollView>
