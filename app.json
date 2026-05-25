@@ -2,9 +2,9 @@
   "expo": {
     "name": "PenseBem",
     "slug": "pensebem-2wjfe0lpvfuaohvxfuyg",
+    "sdkVersion": "55.0.0",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
     "scheme": "pensebem",
     "userInterfaceStyle": "automatic",
     "plugins": [
@@ -13,22 +13,13 @@
     "experiments": {
       "typedRoutes": true
     },
-    "ios": {
-      "icon": "./assets/images/icon.png"
-    },
+    "ios": {},
     "android": {
-      "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/images/android-icon-foreground.png",
-        "backgroundImage": "./assets/images/android-icon-background.png",
-        "monochromeImage": "./assets/images/android-icon-monochrome.png"
-      },
       "predictiveBackGestureEnabled": false
     },
     "web": {
       "bundler": "metro",
-      "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "output": "static"
     },
     "extra": {
       "router": {},
