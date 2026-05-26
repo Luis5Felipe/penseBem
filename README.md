@@ -1,73 +1,28 @@
-Projeto Pense Bem
-Matéria Desenvolvimento Web
+# Projeto PenseBem
+Este projeto trata-se de um simulador do brinquedo PenseBem da TecToy, realizados pelos alunos da Unilasalle-RJ, como parte da avaliação da disciplina Desenvolvimento Mobile. A ideia era implementar o videogame, utilizando React, a partir de um dos livros desse brinquedo, que o caso deste projeto, escolheu-se o livro "Sonic e Tales - Alta Velocidade", que incluem os programas 131 a 136.
 
-    Professor: JOÃO PAULO BAPTISTA VOIGTLAENDER
-    Alunos: Leonardo Amorim, Luis Felipe Dos Santos, NIcollas, João Pedro Torres.
+## Telas
 
-    node v24.14.0
-    react v19.2.4
-    vite v8.0.0
+## Regras
+* Cada pergunta permite até 3 tentativas;
+* Acerto na 1ª tentativa vale 3 pontos;
+* Acerto na 2ª tentativa vale 2 pontos;
+* Acerto na 3ª tentativa vale 1 ponto;
+* Após 3 erros, o jogo avança sem pontuar;
+* A pontuação máxima por livro é 90 pontos.
 
-PDF Escolido
+## Funcionalidades
+- Programa com as 150 perguntas para jogar
+- Game dividido pelos códigos do livro original
+- 3 níveis de dificuldade (fácil, média e difícil)
 
-    pense bem sonic e tails alta velocidade.
+## Tecnologias e Dependências
+* node v24.14.0
+* react v19.2.4
+* vite v8.0.0
 
+## Como Instalar
+[Vou copiar o md que está no github]
 
-
-
-# Welcome to your Expo app 👋
-
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
-
-## Get started
-
-1. Install dependencies
-
-   ```bash
-   npm install
-   ```
-
-2. Start the app
-
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-### Other setup steps
-
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## Contato
+Desenvolvido pelos alunos [Leonardo Amorim](https://github.com/Le0z1nk), [Luis Felipe](https://github.com/Luis5Felipe), [Nicollas Vilela](https://github.com/NicollasVilela), [Guilherme Martins](https://github.com/Guilherme2500) e [João Torres](https://github.com/jpedrotorres) como parte da avaliação de uma das disciplinas da Unilasalle.
