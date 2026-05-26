@@ -93,12 +93,11 @@
             {
               "numero": 7,
               "enunciado": "Tails é um raposinho diferente: ele tem dois... .",
-              "tipo": "imagem",
               "opcoes": {
-                "vermelho": "[dois rabos]",
-                "amarelo": "[duas orelhas/cabeça de raposa]",
-                "azul": "[dois olhos]",
-                "verde": "[dois bicos/narizes]"
+                "vermelho": "dois rabos",
+                "amarelo": "duas orelhas/cabeça de raposa",
+                "azul": "dois olhos",
+                "verde": "dois bicos/narizes"
               },
               "resposta_correta": "vermelho",
               "resposta": "dois rabos"
@@ -106,12 +105,11 @@
             {
               "numero": 8,
               "enunciado": "Os rabos de Tails giram como... .",
-              "tipo": "imagem",
               "opcoes": {
-                "vermelho": "[hélice/propeller]",
-                "amarelo": "[pneu/roda]",
-                "azul": "[bala de doce]",
-                "verde": "[despertador]"
+                "vermelho": "hélice/propeller",
+                "amarelo": "pneu/roda",
+                "azul": "bala de doce",
+                "verde": "despertador"
               },
               "resposta_correta": "vermelho",
               "resposta": "hélice"
@@ -119,12 +117,11 @@
             {
               "numero": 9,
               "enunciado": "Tails flutua como um... .",
-              "tipo": "imagem",
               "opcoes": {
-                "vermelho": "[navio]",
-                "amarelo": "[carro]",
-                "azul": "[rato]",
-                "verde": "[helicóptero]"
+                "vermelho": "navio",
+                "amarelo": "carro",
+                "azul": "rato",
+                "verde": "helicóptero"
               },
               "resposta_correta": "verde",
               "resposta": "helicóptero"
@@ -330,12 +327,11 @@
             {
               "numero": 25,
               "enunciado": "Qual objeto faz movimento giratório similar ao de Tails?",
-              "tipo": "imagem",
               "opcoes": {
-                "vermelho": "[ maçã]",
-                "amarelo": "[ helicóptero]",
-                "azul": "[ martelo]",
-                "verde": "[ porta-retrato]"
+                "vermelho": "maçã",
+                "amarelo": "helicóptero",
+                "azul": "martelo",
+                "verde": "porta-retrato"
               },
               "resposta_correta": "amarelo",
               "resposta": "helicóptero"
@@ -343,12 +339,11 @@
             {
               "numero": 26,
               "enunciado": "Qual objeto faz movimento giratório similar ao de Tails?",
-              "tipo": "imagem",
               "opcoes": {
-                "vermelho": "[geladeira]",
-                "amarelo": "[rádio/toca-discos]",
-                "azul": "[colher]",
-                "verde": "[liquidificador]"
+                "vermelho": "geladeira",
+                "amarelo": "rádio/toca-discos",
+                "azul": "colher",
+                "verde": "liquidificador"
               },
               "resposta_correta": "verde",
               "resposta": "liquidificador"
@@ -356,12 +351,11 @@
             {
               "numero": 27,
               "enunciado": "Qual objeto faz movimento giratório similar ao de Tails?",
-              "tipo": "imagem",
               "opcoes": {
-                "vermelho": "[ventilador]",
-                "amarelo": "[cadeira]",
-                "azul": "[poltrona]",
-                "verde": "[ursinho de pelúcia]"
+                "vermelho": "ventilador",
+                "amarelo": "cadeira",
+                "azul": "poltrona",
+                "verde": "ursinho de pelúcia"
               },
               "resposta_correta": "vermelho",
               "resposta": "ventilador"
@@ -369,12 +363,11 @@
             {
               "numero": 28,
               "enunciado": "Qual objeto faz movimento giratório similar ao de Tails?",
-              "tipo": "imagem",
               "opcoes": {
-                "vermelho": "[televisão]",
-                "amarelo": "[telefone]",
-                "azul": "[cata-vento/hélice]",
-                "verde": "[pincel]"
+                "vermelho": "televisão",
+                "amarelo": "telefone",
+                "azul": "cata-vento/hélice",
+                "verde": "pincel"
               },
               "resposta_correta": "azul",
               "resposta": "cata-vento/hélice"
@@ -382,12 +375,11 @@
             {
               "numero": 29,
               "enunciado": "Qual objeto faz movimento giratório similar ao de Tails?",
-              "tipo": "imagem",
               "opcoes": {
-                "vermelho": "[catavento]",
-                "amarelo": "[casinha]",
-                "azul": "[barco]",
-                "verde": "[cogumelo]"
+                "vermelho": "catavento",
+                "amarelo": "casinha",
+                "azul": "barco",
+                "verde": "cogumelo"
               },
               "resposta_correta": "vermelho",
               "resposta": "catavento"
@@ -395,12 +387,11 @@
             {
               "numero": 30,
               "enunciado": "Qual objeto faz movimento giratório similar ao de Tails?",
-              "tipo": "imagem",
               "opcoes": {
-                "vermelho": "[flor]",
-                "amarelo": "[sorvete]",
-                "azul": "[moinho de vento]",
-                "verde": "[camiseta]"
+                "vermelho": "flor",
+                "amarelo": "sorvete",
+                "azul": "moinho de vento",
+                "verde": "camiseta"
               },
               "resposta_correta": "azul",
               "resposta": "moinho de vento"
@@ -419,7 +410,7 @@
           "questoes": [
             {
               "numero": 31,
-              "enunciado": "Escolha a sequência correta para descrever a imagem de Tails girando seus rabos. (Tabela 1: Este/raposinho/está/comendo | gato/tem/suspenso/dois | rabos/uma/bons/no | que/giram/verdes/ar)",
+              "enunciado": "Escolha a sequência correta para descrever Tails girando seus rabos. Tabela 1: 1 Este, 2 raposinho, 3 está, 4 comendo; 5 gato, 6 tem, 7 suspenso, 8 dois; 9 rabos, 10 uma, 11 bons, 12 no; 13 que, 14 giram, 15 verdes, 16 ar.",
               "opcoes": {
                 "vermelho": "1,2,3,4,11,13,14",
                 "amarelo": "1,5,6,8,11,15",
@@ -431,7 +422,7 @@
             },
             {
               "numero": 32,
-              "enunciado": "Escolha a sequência correta para descrever a imagem. (Tabela 1)",
+              "enunciado": "Escolha a sequência correta usando a Tabela 1: 1 Este, 2 raposinho, 3 está, 4 comendo; 5 gato, 6 tem, 7 suspenso, 8 dois; 9 rabos, 10 uma, 11 bons, 12 no; 13 que, 14 giram, 15 verdes, 16 ar.",
               "opcoes": {
                 "vermelho": "1,5,6,9",
                 "amarelo": "1,2,3,7,12,16",
@@ -443,7 +434,7 @@
             },
             {
               "numero": 33,
-              "enunciado": "Escolha a sequência correta para descrever a imagem de Sonic. (Tabela 2: Este/Tails/espinhos/nos | Sonic/tem/vermelhas/verdes | está/e/com/azuis | correndo/botas/pés/molas)",
+              "enunciado": "Escolha a sequência correta para descrever Sonic. Tabela 2: 1 Este, 2 Tails, 3 espinhos, 4 nos; 5 Sonic, 6 tem, 7 vermelhas, 8 verdes; 9 está, 10 e, 11 com, 12 azuis; 13 correndo, 14 botas, 15 pés, 16 molas.",
               "opcoes": {
                 "vermelho": "5,9,13,11,2",
                 "amarelo": "2,9,13,11,16,4,15",
@@ -455,7 +446,7 @@
             },
             {
               "numero": 34,
-              "enunciado": "Escolha a sequência correta para descrever a imagem de Sonic. (Tabela 2)",
+              "enunciado": "Escolha a sequência correta usando a Tabela 2: 1 Este, 2 Tails, 3 espinhos, 4 nos; 5 Sonic, 6 tem, 7 vermelhas, 8 verdes; 9 está, 10 e, 11 com, 12 azuis; 13 correndo, 14 botas, 15 pés, 16 molas.",
               "opcoes": {
                 "vermelho": "2,9,13,10,5,6,16",
                 "amarelo": "2,6,3,8,4,15",
@@ -467,7 +458,7 @@
             },
             {
               "numero": 35,
-              "enunciado": "Escolha a sequência correta. (Tabela 3: Tails/grandes/frio/Sonic | cachorro/quente/gostam/é | amigos/são/comer/aventura | que/de/e/adora)",
+              "enunciado": "Escolha a sequência correta usando a Tabela 3: 1 Tails, 2 grandes, 3 frio, 4 Sonic; 5 cachorro, 6 quente, 7 gostam, 8 é; 9 amigos, 10 são, 11 comer, 12 aventura; 13 que, 14 de, 15 e, 16 adora.",
               "opcoes": {
                 "vermelho": "1,8,5",
                 "amarelo": "1,15,4,7,14,3",
@@ -479,7 +470,7 @@
             },
             {
               "numero": 36,
-              "enunciado": "Escolha a sequência correta. (Tabela 3)",
+              "enunciado": "Escolha a sequência correta usando a Tabela 3: 1 Tails, 2 grandes, 3 frio, 4 Sonic; 5 cachorro, 6 quente, 7 gostam, 8 é; 9 amigos, 10 são, 11 comer, 12 aventura; 13 que, 14 de, 15 e, 16 adora.",
               "opcoes": {
                 "vermelho": "1,15,4,10,12",
                 "amarelo": "1,15,4,7,14,12",
@@ -816,12 +807,11 @@
             {
               "numero": 61,
               "enunciado": "Qual é o mais veloz? (avião, balão de ar quente, dirigível, foguete)",
-              "tipo": "imagem",
               "opcoes": {
-                "vermelho": "[avião a hélice]",
-                "amarelo": "[balão de ar quente]",
-                "azul": "[dirigível]",
-                "verde": "[foguete]"
+                "vermelho": "avião a hélice",
+                "amarelo": "balão de ar quente",
+                "azul": "dirigível",
+                "verde": "foguete"
               },
               "resposta_correta": "verde",
               "resposta": "foguete"
@@ -829,12 +819,11 @@
             {
               "numero": 62,
               "enunciado": "Qual é o mais veloz? (carro de Fórmula 1, carro comum, bicicleta, skate)",
-              "tipo": "imagem",
               "opcoes": {
-                "vermelho": "[carro de Fórmula 1]",
-                "amarelo": "[carro comum]",
-                "azul": "[bicicleta]",
-                "verde": "[skate]"
+                "vermelho": "carro de Fórmula 1",
+                "amarelo": "carro comum",
+                "azul": "bicicleta",
+                "verde": "skate"
               },
               "resposta_correta": "vermelho",
               "resposta": "carro de Fórmula 1"
@@ -842,12 +831,11 @@
             {
               "numero": 63,
               "enunciado": "Qual é o mais veloz? (tartaruga, elefante, leopardo/guepardo, urso)",
-              "tipo": "imagem",
               "opcoes": {
-                "vermelho": "[tartaruga]",
-                "amarelo": "[elefante]",
-                "azul": "[leopardo/guepardo]",
-                "verde": "[urso]"
+                "vermelho": "tartaruga",
+                "amarelo": "elefante",
+                "azul": "leopardo/guepardo",
+                "verde": "urso"
               },
               "resposta_correta": "azul",
               "resposta": "leopardo/guepardo"
@@ -855,12 +843,11 @@
             {
               "numero": 64,
               "enunciado": "Qual é o mais veloz? (tubarão, estrela-do-mar, peixe, cavalo-marinho)",
-              "tipo": "imagem",
               "opcoes": {
-                "vermelho": "[tubarão]",
-                "amarelo": "[estrela-do-mar]",
-                "azul": "[peixe]",
-                "verde": "[cavalo-marinho]"
+                "vermelho": "tubarão",
+                "amarelo": "estrela-do-mar",
+                "azul": "peixe",
+                "verde": "cavalo-marinho"
               },
               "resposta_correta": "vermelho",
               "resposta": "tubarão"
@@ -868,12 +855,11 @@
             {
               "numero": 65,
               "enunciado": "Qual é o mais veloz? (trem bala, locomotiva a vapor, charrete, ônibus)",
-              "tipo": "imagem",
               "opcoes": {
-                "vermelho": "[trem bala]",
-                "amarelo": "[locomotiva a vapor]",
-                "azul": "[charrete]",
-                "verde": "[ônibus]"
+                "vermelho": "trem bala",
+                "amarelo": "locomotiva a vapor",
+                "azul": "charrete",
+                "verde": "ônibus"
               },
               "resposta_correta": "vermelho",
               "resposta": "trem bala"
@@ -881,12 +867,11 @@
             {
               "numero": 66,
               "enunciado": "Qual é o mais veloz? (abelha, águia, passarinho, borboleta)",
-              "tipo": "imagem",
               "opcoes": {
-                "vermelho": "[abelha]",
-                "amarelo": "[águia]",
-                "azul": "[passarinho]",
-                "verde": "[borboleta]"
+                "vermelho": "abelha",
+                "amarelo": "águia",
+                "azul": "passarinho",
+                "verde": "borboleta"
               },
               "resposta_correta": "amarelo",
               "resposta": "águia"
@@ -1554,12 +1539,11 @@
             {
               "numero": 117,
               "enunciado": "Qual objeto fornece luz?",
-              "tipo": "imagem",
               "opcoes": {
-                "vermelho": "[sapato]",
-                "amarelo": "[rato]",
-                "azul": "[tomate]",
-                "verde": "[vela]"
+                "vermelho": "sapato",
+                "amarelo": "rato",
+                "azul": "tomate",
+                "verde": "vela"
               },
               "resposta_correta": "verde",
               "resposta": "vela"
@@ -1567,12 +1551,11 @@
             {
               "numero": 118,
               "enunciado": "Qual objeto fornece luz?",
-              "tipo": "imagem",
               "opcoes": {
-                "vermelho": "[abelha]",
-                "amarelo": "[lanterna]",
-                "azul": "[cachorro]",
-                "verde": "[relógio]"
+                "vermelho": "abelha",
+                "amarelo": "lanterna",
+                "azul": "cachorro",
+                "verde": "relógio"
               },
               "resposta_correta": "amarelo",
               "resposta": "lanterna"
@@ -1580,12 +1563,11 @@
             {
               "numero": 119,
               "enunciado": "Qual objeto fornece luz?",
-              "tipo": "imagem",
               "opcoes": {
-                "vermelho": "[sofá]",
-                "amarelo": "[refletor/holofote]",
-                "azul": "[bolo]",
-                "verde": "[caneca]"
+                "vermelho": "sofá",
+                "amarelo": "refletor/holofote",
+                "azul": "bolo",
+                "verde": "caneca"
               },
               "resposta_correta": "amarelo",
               "resposta": "refletor/holofote"
@@ -1593,12 +1575,11 @@
             {
               "numero": 120,
               "enunciado": "Qual objeto fornece luz?",
-              "tipo": "imagem",
               "opcoes": {
-                "vermelho": "[caneta]",
-                "amarelo": "[coruja]",
-                "azul": "[martelo]",
-                "verde": "[fogueira]"
+                "vermelho": "caneta",
+                "amarelo": "coruja",
+                "azul": "martelo",
+                "verde": "fogueira"
               },
               "resposta_correta": "verde",
               "resposta": "fogueira"
