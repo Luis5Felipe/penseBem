@@ -278,7 +278,7 @@ export default function GameScreen() {
     ? questionSets.find((set) => set.id === savedProgress.questionSetId)
     : null;
 
-  const activeQuestions = () => {
+  const activeQuestions = (() => {
     if (selectedQuestionSetId === RANDOM_PROGRAM_ID) {
       return randomSequence
         .map(id => questions.find(q => q.id === id))
@@ -292,7 +292,7 @@ export default function GameScreen() {
       return questions.filter((q) => q.id.startsWith(`${progId}-`));
     }
     return questions.filter((q) => q.setId === selectedQuestionSetId);
-  }, [selectedQuestionSetId, randomSequence]);
+  })();
 
   const isUrgent = timeLeft <= 10;
   const currentQuestion = activeQuestions[questionIndex] ?? activeQuestions[0];
@@ -536,7 +536,7 @@ export default function GameScreen() {
               <View style={styles.menuSection}>
                 <Text style={[styles.menuSectionTitle, { color: palette.text }]}>Blocos do programa</Text>
                 <View style={styles.selectionGrid}>
-                  {[allQuestionsSet, ...programSets].map((questionSet) => {
+                  {[allQuestionsSet, ...programSets, randomProgramSet].map((questionSet) => {
                     const isSelected = selectedQuestionSetId === questionSet.id;
 
                     return (
