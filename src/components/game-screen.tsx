@@ -22,6 +22,9 @@ if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental
 const MAX_ATTEMPTS = 3;
 const QUESTION_TIME_SECONDS = 30;
 const PROGRESS_STORAGE_KEY = 'penseBemProgress';
+const RANDOM_PROGRAM_ID = 'aleatorio';
+//alterar aqui a quantidade de questões
+const RANDOM_QUESTIONS_COUNT = 5;
 
 const DIFFICULTIES = [
   { id: 'easy', label: 'Facil', seconds: 30 },
@@ -66,7 +69,7 @@ type GameQuestion = {
 };
 
 type GameStatus = 'playing' | 'answered' | 'timeout' | 'finished';
-type QuestionSetId = 'all' | string;
+type QuestionSetId = 'all' | typeof RANDOM_PROGRAM_ID | string;
 type DifficultyId = (typeof DIFFICULTIES)[number]['id'];
 
 type SavedProgress = {
@@ -77,7 +80,17 @@ type SavedProgress = {
   score: number;
   selectedOption: string | null;
   gameStatus: GameStatus;
+  randomSequence?: string[];
 };
+
+function shuffleArray<T>(array: T[]): T[] {
+  const newArray = [...array];
+  for (let i = newArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+  }
+  return newArray;
+}
 
 function buildQuestions(): GameQuestion[] {
   return gameData.programas.flatMap((programa) => {
@@ -118,6 +131,13 @@ const questions = buildQuestions();
 
 const allQuestionsSet = { id: 'all', label: 'Jogar todos os blocos', questionCount: questions.length };
 
+const randomProgramSet = {
+  id: RANDOM_PROGRAM_ID,
+  code: '136',
+  label: 'Bloco 136',
+  questionCount: Math.min(RANDOM_QUESTIONS_COUNT, questions.length),
+};
+
 const programSets = gameData.programas.map((programa) => {
   const code = programa.codigo_acesso.join(' ');
   const questionCount = programa.secoes.reduce((total, secao) => total + secao.questoes.length, 0);
@@ -140,7 +160,7 @@ const sectionSets = gameData.programas.flatMap((programa) => {
   }));
 });
 
-const questionSets = [allQuestionsSet, ...programSets, ...sectionSets];
+const questionSets = [allQuestionsSet, ...programSets, randomProgramSet, ...sectionSets];
 
 type Palette = {
   page: string;
@@ -241,23 +261,39 @@ export default function GameScreen() {
   const [questionIndex, setQuestionIndex] = useState(0);
   const [attemptsUsed, setAttemptsUsed] = useState(0);
   const [score, setScore] = useState(0);
+  const [randomSequence, setRandomSequence] = useState<string[]>([]);
   const [savedProgress, setSavedProgress] = useState<SavedProgress | null>(() => getStoredProgress());
+
   const { width } = useWindowDimensions();
   const isWide = width >= 900;
   const isPhone = width < 700;
   const isSmall = width < 360;
   const palette = getPalette(isDarkMode);
+
   const selectedDifficulty = DIFFICULTIES.find((difficulty) => difficulty.id === selectedDifficultyId) ?? DIFFICULTIES[0];
+
   const selectedQuestionSet = questionSets.find((set) => set.id === selectedQuestionSetId) ?? questionSets[0];
+
   const savedQuestionSet = savedProgress
     ? questionSets.find((set) => set.id === savedProgress.questionSetId)
     : null;
-  const activeQuestions =
-    selectedQuestionSetId === 'all'
-      ? questions
-      : selectedQuestionSetId.startsWith('program-')
-        ? questions.filter((question) => question.id.startsWith(`${selectedQuestionSetId.replace('program-', '')}-`))
-      : questions.filter((question) => question.setId === selectedQuestionSetId);
+
+  const activeQuestions = () => {
+    if (selectedQuestionSetId === RANDOM_PROGRAM_ID) {
+      return randomSequence
+        .map(id => questions.find(q => q.id === id))
+        .filter((q): q is GameQuestion => q !== undefined);
+    }
+    if (selectedQuestionSetId === 'all') {
+      return questions;
+    }
+    if (selectedQuestionSetId.startsWith('program-')) {
+      const progId = selectedQuestionSetId.replace('program-', '');
+      return questions.filter((q) => q.id.startsWith(`${progId}-`));
+    }
+    return questions.filter((q) => q.setId === selectedQuestionSetId);
+  }, [selectedQuestionSetId, randomSequence]);
+
   const isUrgent = timeLeft <= 10;
   const currentQuestion = activeQuestions[questionIndex] ?? activeQuestions[0];
   const isCorrectAnswer = gameStatus === 'answered' && selectedOption === currentQuestion.correctAnswer;
@@ -328,6 +364,7 @@ export default function GameScreen() {
       score,
       selectedOption,
       gameStatus,
+      randomSequence: selectedQuestionSetId === RANDOM_PROGRAM_ID ? randomSequence : undefined,
       ...overrides,
     };
   }
@@ -346,6 +383,15 @@ export default function GameScreen() {
     clearStoredProgress();
     setSavedProgress(null);
     resetGameState();
+
+    if (selectedQuestionSetId === RANDOM_PROGRAM_ID) {
+       const shuffled = shuffleArray([...questions]);
+       const newRandomSequence = shuffled.slice(0, RANDOM_QUESTIONS_COUNT).map(q => q.id);
+       setRandomSequence(newRandomSequence);
+    } else {
+       setRandomSequence([]);
+    }
+
     setScreen('game');
   }
 
@@ -365,8 +411,12 @@ export default function GameScreen() {
     setScore(progress.score);
     setSelectedOption(progress.selectedOption);
     setGameStatus(progress.gameStatus);
-    const progressDifficulty = DIFFICULTIES.find((difficulty) => difficulty.id === progress.difficultyId) ?? DIFFICULTIES[0];
 
+    if (progress.randomSequence) {
+      setRandomSequence(progress.randomSequence);
+    }
+
+    const progressDifficulty = DIFFICULTIES.find((difficulty) => difficulty.id === progress.difficultyId) ?? DIFFICULTIES[0];
     setTimeLeft(progressDifficulty.seconds);
     setScreen('game');
   }
@@ -385,6 +435,12 @@ export default function GameScreen() {
     clearStoredProgress();
     setSavedProgress(null);
     resetGameState();
+
+    if (selectedQuestionSetId === RANDOM_PROGRAM_ID) {
+      const shuffled = shuffleArray([...questions]);
+      const newRandomSequence = shuffled.slice(0, RANDOM_QUESTIONS_COUNT).map(q => q.id);
+      setRandomSequence(newRandomSequence);
+    }
   }
 
   function handleContinue() {
