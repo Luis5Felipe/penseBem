@@ -116,7 +116,7 @@ function buildQuestions(): GameQuestion[] {
 
 const questions = buildQuestions();
 
-const allQuestionsSet = { id: 'all', label: 'Jogar todos', questionCount: questions.length };
+const allQuestionsSet = { id: 'all', label: 'Jogar todos os blocos', questionCount: questions.length };
 
 const programSets = gameData.programas.map((programa) => {
   const code = programa.codigo_acesso.join(' ');
@@ -269,8 +269,7 @@ export default function GameScreen() {
   const selectedSectionSet = sectionSets.find((set) => set.id === selectedQuestionSetId);
 
   useEffect(() => {
-    if (screen !== 'game') return;
-    if (gameStatus !== 'playing') return;
+    if (screen !== 'game' || gameStatus !== 'playing') return;
 
     const interval = setInterval(() => {
       setTimeLeft((prev) => {
