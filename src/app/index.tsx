@@ -1,4 +1,4 @@
-import GameScreen from '@/components/game-screen';
+import GameScreen from '../components/game-screen';
 
 export default function HomeScreen() {
   return <GameScreen />;
