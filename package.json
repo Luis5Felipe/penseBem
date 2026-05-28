@@ -3,11 +3,11 @@
   "main": "expo-router/entry",
   "version": "1.0.0",
   "dependencies": {
-    "expo": "~55.0.0",
-    "expo-router": "~55.0.16",
-    "react": "19.2.0",
-    "react-dom": "19.2.0",
-    "react-native": "0.83.6",
+    "expo": "~56.0.6",
+    "expo-router": "~56.2.7",
+    "react": "19.2.6",
+    "react-dom": "19.2.6",
+    "react-native": "0.85.3",
     "react-native-web": "^0.21.0"
   },
   "scripts": {
