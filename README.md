@@ -22,7 +22,25 @@ Este projeto trata-se de um simulador do brinquedo PenseBem da TecToy, realizado
 * vite v8.0.0
 
 ## Como Instalar
-[Vou copiar o md que está no github]
+## 1. Clonar o repositório
 
+```bash
+git clone https://github.com/Luis5Felipe/penseBem.git
+```
+---
+## 2. Acessar a pasta do projeto
+```bash
+cd penseBem
+```
+---
+## 3. Instalar as dependências
+```bash
+npm install
+```
+ou
+```bash
+yarn install
+```
+---
 ## Contato
 Desenvolvido pelos alunos [Leonardo Amorim](https://github.com/Le0z1nk), [Luis Felipe](https://github.com/Luis5Felipe), [Nicollas Vilela](https://github.com/NicollasVilela), [Guilherme Martins](https://github.com/Guilherme2500) e [João Torres](https://github.com/jpedrotorres) como parte da avaliação de uma das disciplinas da Unilasalle.
